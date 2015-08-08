@@ -1,0 +1,1 @@
+require 'buildings/active_record_extensions'

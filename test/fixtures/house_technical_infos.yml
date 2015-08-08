@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sections_count: 1
+  building_type: MyText
+  earth_area_square: 1.5
+
+two:
+  sections_count: 1
+  building_type: MyText
+  earth_area_square: 1.5

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  class: MyString
+  availability: MyString
+  end_date: 2015-08-06
+  start_date: 2015-08-06
+  price_from: 1.5
+  builder_site: MyString
+  nearest_metro_station: MyText
+  nearest_bus_stop: MyText
+  phone: MyString
+
+two:
+  class: MyString
+  availability: MyString
+  end_date: 2015-08-06
+  start_date: 2015-08-06
+  price_from: 1.5
+  builder_site: MyString
+  nearest_metro_station: MyText
+  nearest_bus_stop: MyText
+  phone: MyString

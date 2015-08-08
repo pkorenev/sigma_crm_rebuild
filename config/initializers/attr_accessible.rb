@@ -1,0 +1,1 @@
+require 'attr_accessible/active_record_extensions'

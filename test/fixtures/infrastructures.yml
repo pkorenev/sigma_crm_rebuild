@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  distance_to_pre_school: MyText
+  distance_to_school: MyText
+  distance_to_food_markets: MyText
+  playground: MyText
+
+two:
+  distance_to_pre_school: MyText
+  distance_to_school: MyText
+  distance_to_food_markets: MyText
+  playground: MyText

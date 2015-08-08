@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  birthday: 2015-08-07
+  identification_number: MyString
+  passport_series: MyString
+  given_by: MyString
+
+two:
+  birthday: 2015-08-07
+  identification_number: MyString
+  passport_series: MyString
+  given_by: MyString

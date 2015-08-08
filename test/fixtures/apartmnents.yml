@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  apartment_house_id: 1
+  apartment_number: 1
+  price_from: MyString
+  square: 1.5
+  status: MyString
+
+two:
+  apartment_house_id: 1
+  apartment_number: 1
+  price_from: MyString
+  square: 1.5
+  status: MyString

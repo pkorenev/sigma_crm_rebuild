@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  level: 1
+  world_sides: MyString
+  apartment_type: MyString
+  live_square: 1.5
+  building_number: MyString
+  outer: MyString
+  exterior_walls: MyText
+  apartment_separator_walls: MyText
+  apartment_inner_separator_walls: MyText
+  height: 1.5
+  filling_openings_in_walls: MyString
+  telephony: MyText
+  internet: MyText
+  tv: MyText
+  kitchen_stove_type: MyText
+  wiring: MyText
+  sanitary_equipment: MyText
+  heating: MyText
+  ventilation: MyText
+  water_supply: MyText
+  internal_sewer_system: MyText
+  internal_finishing_work: MyText
+  additional_info: MyText
+  turnkey_apartment: MyText
+
+two:
+  level: 1
+  world_sides: MyString
+  apartment_type: MyString
+  live_square: 1.5
+  building_number: MyString
+  outer: MyString
+  exterior_walls: MyText
+  apartment_separator_walls: MyText
+  apartment_inner_separator_walls: MyText
+  height: 1.5
+  filling_openings_in_walls: MyString
+  telephony: MyText
+  internet: MyText
+  tv: MyText
+  kitchen_stove_type: MyText
+  wiring: MyText
+  sanitary_equipment: MyText
+  heating: MyText
+  ventilation: MyText
+  water_supply: MyText
+  internal_sewer_system: MyText
+  internal_finishing_work: MyText
+  additional_info: MyText
+  turnkey_apartment: MyText

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  complex_id: 1
+  price_from: 1.5
+  start_date: 2015-08-07
+  end_date: 2015-08-07
+
+two:
+  complex_id: 1
+  price_from: 1.5
+  start_date: 2015-08-07
+  end_date: 2015-08-07

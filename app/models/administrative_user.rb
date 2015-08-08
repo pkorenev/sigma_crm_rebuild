@@ -1,0 +1,3 @@
+class AdministrativeUser < RegisteredUser
+
+end

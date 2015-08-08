@@ -1,0 +1,1 @@
+require 'crm/active_record_extensions'
