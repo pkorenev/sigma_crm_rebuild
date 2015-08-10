@@ -41,6 +41,7 @@ module Buildings
 
       def acts_as_apartment
         belongs_to :apartment_house
+        addressable
       end
 
       def has_infrastructure

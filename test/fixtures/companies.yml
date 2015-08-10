@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: companies
+#
+#  id                     :integer          not null, primary key
+#  companyable_type       :string
+#  companyable_id         :integer
+#  companyable_field_name :string
+#  name                   :string
+#  site                   :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

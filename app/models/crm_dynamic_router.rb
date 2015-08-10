@@ -1,11 +1,13 @@
 class CrmDynamicRouter
   def self.load
     Rails.application.class.routes.draw do
-      scope ":resource_class", controller: "dynamic_resources" do
-        get "", action: "index"
-        get ":resource_id", action: "show"
-        get "new", action: "new"
-        get ":resource_id/edit", action: "edit"
+      crm_route_prefix = "crm_admin_"
+
+      scope ":resource_class", controller: "crm_admin" do
+        get "", action: "index", as: "#{crm_route_prefix}resources"
+        get ":resource_id", action: "show", as: "#{crm_route_prefix}resource"
+        get "new", action: "new", as: "#{crm_route_prefix}new_resource"
+        get ":resource_id/edit", action: "edit", as: "#{crm_route_prefix}edit_resource"
         post "", action: "create"
         match ":resource_id", action: "update", via: [:put, :patch]
         delete ":resource_id", action: "destroy"

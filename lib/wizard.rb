@@ -1,0 +1,3 @@
+module Wizard
+
+end

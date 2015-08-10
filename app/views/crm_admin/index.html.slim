@@ -1,0 +1,5 @@
+
+- if @resources.try(&:any?)
+  - @resources.each do |res|
+    li
+      = link_to res.to_s, resource_path(res)

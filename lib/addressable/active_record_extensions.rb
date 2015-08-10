@@ -8,6 +8,10 @@ module Addressable
         has_one :address, as: :addressable, class_name: "Address"
 
       end
+
+      def addressable?
+        self._reflections.select{|key, r| r.options[:class_name] == "Address" }.any?
+      end
     end
   end
 end
