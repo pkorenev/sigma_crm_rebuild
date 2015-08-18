@@ -1,0 +1,7 @@
+uk:
+  activerecord:
+    models:
+      building_complex:
+        one: "Комплекс"
+        other: "Комплекси"
+        new: "Новий комплекс"

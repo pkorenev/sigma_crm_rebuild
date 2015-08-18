@@ -14,6 +14,9 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :apartment_number
       t.string :google_place_id
 
+      t.float :latitude
+      t.float :longitude
+
       t.timestamps null: false
     end
   end

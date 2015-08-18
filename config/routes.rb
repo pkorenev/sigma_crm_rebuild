@@ -1,6 +1,27 @@
 #require Gem.loaded_specs['fredit'].stub.gem_dir + "/app/controllers/fredit_controller.rb"
-
+puts "before routes"
 Rails.application.routes.draw do
+
+  namespace "crm", module: "crm", path: "/" do
+    root to: "dashboard#index"
+    resources :complexes
+    resources :apartment_houses
+    resources :apartments
+
+  end
+
+  #mount Cms::Engine, at: ""
+
+  #mount Crm::Engine, at: "/"
+
+  #resources :apartments, controller: "crm_admin/apartments"
+
+
+
+  #get "routes/reload"
+  #get "log", to: "log#index"
+
+  #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   concern :commentable do
     resources :comments
   end
@@ -9,19 +30,19 @@ Rails.application.routes.draw do
     resources :assets
   end
 
-  root to: "dynamic_resources#dashboard"
+  #root to: "crm_admin#dashboard"
 
   #devise_for :accounts
   #mount "fredit", "edit"
-  scope "edit", controller: "front_edit" do
-    get 'revision', action: "revision"
-    get '', action: "show", as: "fredit"
-    put '', action: "update"
-    post '', action: "create"
-    post 'upload', action: "upload"
-  end
+  # scope "edit", controller: "front_edit" do
+  #   get 'revision', action: "revision"
+  #   get '', action: "show", as: "fredit"
+  #   put '', action: "update"
+  #   post '', action: "create"
+  #   post 'upload', action: "upload"
+  # end
 
-  CrmDynamicRouter.load
+  #CrmDynamicRouter.load
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -21,7 +21,7 @@ gem 'rails', '4.2.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -32,6 +32,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+
+gem 'slim-rails'
+
+gem 'protected_attributes'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -41,17 +48,20 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'ffaker'
+  gem 'amoeba'
+
+  gem 'database_cleaner'
+
 end
-
-gem 'slim-rails'
-
-gem 'protected_attributes'
-
-
 
 group :development do
   gem 'thin'
   gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
 end
 
 group :assets do
@@ -69,6 +79,11 @@ group :staging do
   gem 'fredit'
 end
 
+group :doc do
+  gem 'sdoc', '~> 0.4.0'
+  gem 'annotate'
+end
+
 gem 'paperclip'
 
 gem 'devise'
@@ -80,3 +95,29 @@ gem "enumerize"
 gem 'rails_admin'
 
 gem 'globalize'
+
+#gem 'activeadmin'
+
+# gem 'react.rb'
+# gem 'react-rails'
+
+engines_path = "../engines"
+gems_path = "../gems"
+
+#gem 'crm', path: "#{engines_path}/crm"
+
+#gem 'addressable', path: "#{gems_path}/addressable"#, require: true
+
+# require 'addressable'
+
+#gem 'attachable', path: "gems/attachable"
+
+gem 'addressable', path: "gems/addressable"
+
+#gem 'crm', path: "engines/crm"
+
+gem 'cms', path: "engines/cms"
+
+gem 'kaminari'
+
+gem 'foundation-rails'

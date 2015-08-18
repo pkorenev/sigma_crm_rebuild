@@ -11,4 +11,5 @@
 #
 
 class HouseTechnicalInfo < ActiveRecord::Base
+  belongs_to :actable_as_house, polymorphic: true
 end

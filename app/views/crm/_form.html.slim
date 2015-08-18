@@ -1,0 +1,12 @@
+.info
+  = @fields.inspect
+/= simple_form_for @resource, url: resources_path do |form|
+  - @fields.each do |field|
+    - field = compute_field_config(field[:name])
+    - if field[:association]
+      - if field[:nested]
+        = simple_fields_for field[:name] do
+      - else
+        = form.association field[:name]
+    - else
+      = form.input field[:name]

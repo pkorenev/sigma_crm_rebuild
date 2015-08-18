@@ -4,7 +4,7 @@ class CreateHouseMainInfos < ActiveRecord::Migration
       t.integer :actable_as_house_id
       t.string :actable_as_house_type
 
-      t.string :class
+      t.string :house_class
       t.string :availability
       t.date :end_date
       t.date :start_date

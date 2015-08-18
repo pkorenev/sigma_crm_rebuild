@@ -1,3 +1,7 @@
+.actions
+  ul.button-group
+    li
+      = link_to t("activerecord.models.#{resource_name}.new"), new_resource_path, class: "button"
 table
   thead
     - @fields.each do |f|

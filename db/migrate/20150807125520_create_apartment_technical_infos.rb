@@ -1,6 +1,9 @@
 class CreateApartmentTechnicalInfos < ActiveRecord::Migration
   def change
     create_table :apartment_technical_infos do |t|
+      t.integer :actable_as_apartment_id
+      t.string :actable_as_apartment_type
+
       t.integer :level
       t.string :world_sides
       t.string :apartment_type

@@ -5,7 +5,7 @@
 #  id                    :integer          not null, primary key
 #  actable_as_house_id   :integer
 #  actable_as_house_type :string
-#  class                 :string
+#  house_class                 :string
 #  availability          :string
 #  end_date              :date
 #  start_date            :date
@@ -19,8 +19,10 @@
 class HouseMainInfo < ActiveRecord::Base
   extend Enumerize
 
+  belongs_to :actable_as_house, polymorphic: true
+
   attr_accessible *attribute_names
 
-  enumerize :class, in: [:delux, :club, :elite, :business, :comfort, :standard, :econom]
+  enumerize :house_class, in: [:delux, :club, :elite, :business, :comfort, :standard, :econom]
   enumerize :availability, in: [:available_apartments_or_square, :no_available_apartments]
 end
