@@ -17,4 +17,10 @@ class User < ActiveRecord::Base
     visible false
     favorite_color :red
   end
+
+  def self.who_am_i
+    User.get_caller_file_name do
+      
+    end
+  end
 end

@@ -2,12 +2,27 @@ class CrmAdminController < ResourcesController
   #prepend_view_path "app/views/crm_admin"
   layout "crm"
 
-  def dashboard
-    a = rand(1..3)
-    if a != 3
-      CrmAdmin::Config.included_models = a
+  def self.parse_caller(at)
+    if /^(.+?):(\d+)(?::in `(.*)')?/ =~ at
+      file = Regexp.last_match[1]
+      line = Regexp.last_match[2].to_i
+      method = Regexp.last_match[3]
+      [file, line, method]
     end
-    render inline: CrmAdmin::Config.included_models.inspect
+  end
+
+  def self.call_me
+    return File.dirname(parse_caller(caller[0]).first)
+  end
+
+  def dashboard
+    # a = rand(1..3)
+    # if a != 3
+    #   CrmAdmin::Config.included_models = a
+    # end
+    # render inline: CrmAdmin::Config.included_models.inspect
+
+    #render inline: "hi"
   end
 
   def resource_class_name
@@ -47,5 +62,7 @@ class CrmAdminController < ResourcesController
   def set_resource
     @resource ||= resource_class.find(params[:resource_id])
   end
+
+
 
 end

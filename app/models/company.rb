@@ -14,4 +14,6 @@
 
 class Company < ActiveRecord::Base
   belongs_to :companyable, polymorphic: true
+
+  scope :untitled, -> { where(name: "untitled") }
 end

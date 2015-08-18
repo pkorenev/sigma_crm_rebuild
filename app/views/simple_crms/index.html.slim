@@ -1,0 +1,19 @@
+h1 Listing simple_crms
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @simple_crms.each do |simple_crm|
+      tr
+        td = link_to 'Show', simple_crm
+        td = link_to 'Edit', edit_simple_crm_path(simple_crm)
+        td = link_to 'Destroy', simple_crm, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Simple crm', new_simple_crm_path

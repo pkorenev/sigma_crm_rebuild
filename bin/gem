@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require_relative 'component'
+
+gem_name = ARGV[0]
+new_gem(gem_name)

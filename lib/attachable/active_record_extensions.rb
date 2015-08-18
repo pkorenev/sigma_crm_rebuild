@@ -3,7 +3,9 @@ module Attachable
     extend ActiveSupport::Concern
 
     module ClassMethods
-
+      def get_caller_file_name &block
+        block.send :eval, "__FILE__"
+      end
       def has_attachments(name = nil, **options)
         multiple = !!options[:multiple]
         name ||= :attachment
@@ -29,3 +31,4 @@ module Attachable
 end
 
 ActiveRecord::Base.send(:include, Attachable::ActiveRecordExtensions)
+

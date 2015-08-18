@@ -3,7 +3,7 @@ class CrmDynamicRouter
     Rails.application.class.routes.draw do
       crm_route_prefix = "crm_admin_"
 
-      scope ":resource_class", controller: "crm_admin" do
+      scope ":resource_class", controller: "simple_crms" do
         get "", action: "index", as: "#{crm_route_prefix}resources"
         get ":resource_id", action: "show", as: "#{crm_route_prefix}resource"
         get "new", action: "new", as: "#{crm_route_prefix}new_resource"

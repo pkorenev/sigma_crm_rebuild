@@ -15,12 +15,16 @@
 class Apartment < ActiveRecord::Base
   acts_as_apartment
 
+  class << self
+    attr_accessor :fields
+    def field name, type
+      @fields ||= []
+      @fields << {}
+    end
 
-  crm_admin do
-    visible false
+    def fields
 
-    list do
-      field :name
     end
   end
+
 end

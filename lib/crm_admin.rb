@@ -3,47 +3,26 @@ require 'crm_admin/config'
 
 
 module CrmAdmin
-  def self.config(entity = nil, &block)
-    CrmAdmin::Config.initialize
+  class << self
+    def config(entity = nil, &block)
+      CrmAdmin::Config.initialize
 
-    unless block_given?
-      if entity.nil?
-        return CrmAdmin::Config
-      else
-        model_config = CrmAdmin::Config::AbstractModel
-        return model_config
-      end
-    end
-
-    if entity.nil?
-      yield(CrmAdmin::Config)
-    else
-      CrmAdmin::Config.current_config_context = entity
-      #entity.instance_eval()
-      model_config_class = CrmAdmin::Config::AbstractModel
-
-      if entity.is_a?(String)
-        entity_name = entity.classify
-        if Object.const_defined?(entity_name)
-          entity = entity.constantize
-        else
-          return nil
+      unless block_given?
+        if entity.nil?
+          return CrmAdmin::Config
+        elsif entity.is_a?(Class)
+          if entity.class_variable_defined?(:@@crm_config)
+            entity.class_variable_get(:@@crm_config)
+          end
         end
       end
-
-      if entity.is_a?(Class)
-        model_config_class.instance_eval &block
-      else
-        model_config_class.instance_exec entity, &block
-      end
-
-
-      #block.call
-
-      CrmAdmin::Config.current_config_context = nil
     end
+
+
   end
 end
+
+
 
 
 ## TODO
@@ -86,135 +65,5 @@ end
 #   end
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-
-# module Invitable
-#   def invite
-#     puts self.name
-#   end
-#
-#   def invited?(user)
-#
-#   end
-#
-#   def invited
-#
-#   end
-#
-#   def invited_by(user)
-#
-#   end
-#
-#   def invited_by?(user)
-#
-#   end
-#
-#   def invited_at
-#
-#   end
-#
-#   def invitations
-#
-#   end
-#
-#   class << self
-#     def all_invited
-#
-#     end
-#   end
-# end
-#
-# module Callable
-#   def call_to(user)
-#
-#   end
-#
-#   def invite
-#     puts "Callable"
-#   end
-# end
-#
-# module SuperInvitable
-#   include Invitable
-#   include Callable
-#
-#   extend Invitable
-# end
-#
-# class Teacher
-#   include Invitable
-# end
-#
-# class Student
-#   extend Invitable
-# end
-#
-# class SuperStudent < Student
-#   extend Callable
-# end
-#
-# class Professor
-#   extend SuperInvitable
-#   extend Invitable
-#
-#   def self.measure_for
-#     val = 0
-#     puts(Benchmark.measure() do
-#       for i in 1..5**10
-#         val += 1
-#       end
-#     end)
-#
-#     val
-#   end
-#
-#   def self.measure_each
-#     val = 0
-#     puts(Benchmark.measure() do
-#            (1..5**10).each do
-#              val += 1
-#            end
-#          end)
-#     val
-#   end
-#
-#   def self.measure_times
-#     val = 0
-#     puts(Benchmark.measure() do
-#            (5**10).times do
-#              val += 1
-#            end
-#          end)
-#     val
-#   end
-#
-#   def self.block_call(&block)
-#     block.call
-#   end
-#
-#   def self.yield
-#
-#     puts "before yield"
-#
-#     a, b = 1, 2
-#
-#     yield a, b
-#     puts "after yield"
-#   end
-#
-#   def self.block_call2(&block)
-#     block.call(*Apartment.all)
-#   end
-#
-# end
 
 

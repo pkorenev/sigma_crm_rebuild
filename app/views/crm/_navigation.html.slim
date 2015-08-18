@@ -1,4 +1,12 @@
 .navigation
-  - navigation_menu.each do |item|
+  ul
     li
-      = link_to item, resources_path(resource_class: item)
+      .menu-item-header
+        = "Нерухомість"
+      ul
+        li
+          = link_to "Житлові комплекси", crm_complexes_path
+        li
+          = link_to "Багатоквартирні будинки", crm_apartment_houses_path
+        li
+          = link_to "Квартири", crm_apartments_path

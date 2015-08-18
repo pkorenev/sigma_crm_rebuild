@@ -1,0 +1,4 @@
+.navigation
+  - navigation_menu.each do |item|
+    li
+      = link_to item, resources_path(resource_class: item)

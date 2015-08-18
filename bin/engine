@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require_relative './component'
+
+engine_name = ARGV[0]
+new_engine(engine_name)

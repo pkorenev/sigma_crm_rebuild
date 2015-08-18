@@ -1,0 +1,15 @@
+table
+  thead
+    - @fields.each do |f|
+      th
+        = f[:name]
+  tbody
+    - @resources.each do |r|
+      tr
+        - @fields.each do |f|
+          td
+            = r.send(f[:name])
+        td.actions
+          = link_to "show", show_resource_path(r)
+          /= link_to "edit", edit_resource_path(r)
+          /= link_to "delete", resource_path(r)

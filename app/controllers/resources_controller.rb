@@ -81,25 +81,36 @@ class ResourcesController < CrmController
   end
 
   def resources_url
-    send("#{resources_name}_url")
+    send("#{resources_path_name}_url")
   end
 
   def resources_path
-    send("#{resources_name}_path")
+    send("#{resources_path_name}_path")
   end
 
+  def resource_path_name
+    resource_name
+  end
+
+  def resources_path_name
+    resources_name
+  end
 
   def new_resource_path
-    send("new_#{resource_name}_path")
+    send("new_#{resource_path_name}_path")
   end
 
   def resource_name
     resource_class.to_s.underscore
   end
 
+  def show_resource_path(resource = resource)
+    send("#{resource_path_name}_path", resource)
+    #url_for(resource)
+  end
 
-  def edit_resource_path
-    send("edit_#{resource_name}_path", resource)
+  def edit_resource_path(resource = resource)
+    send("edit_#{resource_path_name}_path", resource)
   end
 
 
@@ -110,7 +121,7 @@ class ResourcesController < CrmController
     resource_name.pluralize
   end
 
-  helper_method :new_resource_path, :resource_name, :resources_name, :resources_path, :edit_resource_path, :resource_class
+  helper_method :show_resource_path, :new_resource_path, :resource_name, :resources_name, :resources_path, :edit_resource_path, :resource_class
 
   protected
   # Use callbacks to share common setup or constraints between actions.

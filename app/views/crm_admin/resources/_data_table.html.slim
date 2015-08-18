@@ -1,0 +1,12 @@
+table
+  thead
+    - @data_table[:columns].each do |column|
+      th
+        = column.name
+  tbody
+    - @data_table[:resources].each do |resource|
+      tr
+        - @data_table[:columns].each do |column|
+          td
+            = resource.send(column)
+

@@ -17,5 +17,10 @@
 class Asset < ActiveRecord::Base
   belongs_to :assetable, polymorphic: true
 
+  def a
+    to_param
+  end
 
+  rails_admin do
+  end
 end

@@ -1,0 +1,12 @@
+= form_for @simple_crm do |f|
+  - if @simple_crm.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@simple_crm.errors.count, "error")} prohibited this simple_crm from being saved:"
+      ul
+        - @simple_crm.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit
+
+ruby:
+  simple_form_for

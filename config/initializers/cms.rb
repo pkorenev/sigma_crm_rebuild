@@ -1,1 +1,1 @@
-require "cms/active_record_extensions"
+#require "cms/active_record_extensions"

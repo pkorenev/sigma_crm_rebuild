@@ -4,9 +4,9 @@
 #
 # end
 
-module DataTable
-
-  extend HasFields
-
-
-end
+# module DataTable
+#
+#   extend ::HasFields
+#
+#
+# end
