@@ -17,10 +17,10 @@
 class Asset < ActiveRecord::Base
   belongs_to :assetable, polymorphic: true
 
-  def a
-    to_param
-  end
+  has_attached_file :data#, proc {|attachment| attachment_options }
 
-  rails_admin do
+
+  def attachment_options
+    {}
   end
 end

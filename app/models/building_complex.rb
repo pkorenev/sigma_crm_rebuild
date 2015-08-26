@@ -15,6 +15,7 @@ class BuildingComplex < ActiveRecord::Base
 
 
   acts_as_building_complex
+  has_images styles: { thumbnail: "165x165#" }
 
 
 

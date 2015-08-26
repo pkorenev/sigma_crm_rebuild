@@ -18,6 +18,10 @@ module Buildings
         attr_accessible :main_info_attributes, :technical_info_attributes, :apartment_technical_info_attributes
       end
 
+      def has_apartment_technical_info
+        has_one :apartment_technical_info, as: :actable_as_apartment
+      end
+
       def acts_as_building_complex
         addressable
         has_house_properties
@@ -27,6 +31,7 @@ module Buildings
 
 
         has_many :apartment_houses, foreign_key: :complex_id
+        has_many :apartments, foreign_key: :building_complex_fast_link
 
         has_infrastructure
       end
@@ -35,6 +40,8 @@ module Buildings
         has_house_properties
         belongs_to :building_complex, foreign_key: :complex_id, class_name: "BuildingComplex"
         has_builder
+
+        has_many :apartments
       end
 
       def acts_as_apartment_house
@@ -49,6 +56,10 @@ module Buildings
       def acts_as_apartment
         belongs_to :apartment_house
         addressable
+        has_apartment_technical_info
+        has_one :building_complex_through_house, through: :apartment_house
+        belongs_to :building_complex, foreign_key: :building_complex_fast_link
+
       end
 
       def has_infrastructure

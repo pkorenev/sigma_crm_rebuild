@@ -1,5 +1,7 @@
 module Crm
-  class DashboardController < BaseController
+  class DashboardController < ApplicationController
+    before_action :authenticate_account!, unless: :json_request?
+
     def index
 
     end

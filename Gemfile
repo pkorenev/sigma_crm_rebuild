@@ -47,7 +47,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  #gem 'spring'
 
   gem 'ffaker'
   gem 'amoeba'
@@ -87,12 +87,15 @@ end
 gem 'paperclip'
 
 gem 'devise'
+gem 'devise_invitable'
+
+gem 'cancancan'
 
 gem 'simple_form'
 
 gem "enumerize"
 
-gem 'rails_admin'
+gem 'rails_admin'#, path: "gems/rails_admin"
 
 gem 'globalize'
 
@@ -121,3 +124,6 @@ gem 'cms', path: "engines/cms"
 gem 'kaminari'
 
 gem 'foundation-rails'
+
+gem "haml2slim"
+

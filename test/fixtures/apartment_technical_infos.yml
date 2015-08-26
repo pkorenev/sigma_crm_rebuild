@@ -3,6 +3,8 @@
 # Table name: apartment_technical_infos
 #
 #  id                              :integer          not null, primary key
+#  actable_as_apartment_id         :integer
+#  actable_as_apartment_type       :string
 #  level                           :integer
 #  world_sides                     :string
 #  apartment_type                  :string

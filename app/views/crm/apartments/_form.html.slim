@@ -1,0 +1,8 @@
+= simple_form_for @resource, url: new_crm_apartment_path do |f|
+  /= f.association :building_complex
+  = f.association :apartment_house
+  = f.simple_fields_for :address do |fa|
+    = fa.input :apartment_number
+  = f.input :price_from
+  = f.input :square
+

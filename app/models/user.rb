@@ -1,26 +1,8 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id          :integer          not null, primary key
-#  first_name  :string
-#  middle_name :string
-#  last_name   :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-
 class User < ActiveRecord::Base
-  #include AttrAccessible::ActiveRecordExtensions
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :invitable, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-  crm_admin do
-    visible false
-    favorite_color :red
-  end
-
-  def self.who_am_i
-    User.get_caller_file_name do
-      
-    end
-  end
+  has_image :avatar, styles: { medium: "300x300#", thumb: "100x100#" }
 end

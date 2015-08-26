@@ -13,4 +13,5 @@
 
 class ApartmentHouse < ActiveRecord::Base
   acts_as_apartment_house
+  has_images styles: { thumbnail: "275x180#", large: "940x400#" }
 end

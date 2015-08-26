@@ -1,7 +1,7 @@
 .info
-  = @fields.inspect
-/= simple_form_for @resource, url: resources_path do |form|
-  - @fields.each do |field|
+  = @fields.map{|f| compute_field_config(f[:name]) }.inspect
+= simple_form_for @resource, url: resources_path do |form|
+  /- @fields.each do |field|
     - field = compute_field_config(field[:name])
     - if field[:association]
       - if field[:nested]
@@ -10,3 +10,5 @@
         = form.association field[:name]
     - else
       = form.input field[:name]
+  .info
+    = render "form_content", form: form

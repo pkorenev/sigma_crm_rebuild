@@ -5,7 +5,7 @@
 #  id                    :integer          not null, primary key
 #  actable_as_house_id   :integer
 #  actable_as_house_type :string
-#  class                 :string
+#  house_class           :string
 #  availability          :string
 #  end_date              :date
 #  start_date            :date

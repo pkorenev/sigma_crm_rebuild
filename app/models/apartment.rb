@@ -15,16 +15,11 @@
 class Apartment < ActiveRecord::Base
   acts_as_apartment
 
-  class << self
-    attr_accessor :fields
-    def field name, type
-      @fields ||= []
-      @fields << {}
-    end
+  has_images styles: { thumbnail: "275x180#", large: "940x400#" }
 
-    def fields
-
-    end
+  before_save :compile_fast_attributes
+  def compile_fast_attributes
+    self.building_complex_fast_link = self.building_complex_through_house.id
   end
 
 end

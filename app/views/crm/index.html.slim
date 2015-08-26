@@ -17,3 +17,4 @@ table
           = link_to "show", show_resource_path(r)
           /= link_to "edit", edit_resource_path(r)
           /= link_to "delete", resource_path(r)
+= paginate @resources
