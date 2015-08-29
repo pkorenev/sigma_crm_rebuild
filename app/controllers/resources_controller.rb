@@ -104,12 +104,12 @@ class ResourcesController < CrmController
     resource_class.to_s.underscore
   end
 
-  def show_resource_path(resource = resource)
+  def show_resource_path(resource = self.resource)
     send("#{resource_path_name}_path", resource)
     #url_for(resource)
   end
 
-  def edit_resource_path(resource = resource)
+  def edit_resource_path(resource = self.resource)
     send("edit_#{resource_path_name}_path", resource)
   end
 

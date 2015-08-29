@@ -17,10 +17,13 @@
 class Asset < ActiveRecord::Base
   belongs_to :assetable, polymorphic: true
 
-  has_attached_file :data#, proc {|attachment| attachment_options }
+  has_attached_file :data, styles: proc {|attachment| attachment.instance.attachment_styles }
 
+  do_not_validate_attachment_file_type :data
 
-  def attachment_options
-    {}
+  delegate :url, :path, :exists?, :styles, to: :data
+
+  def attachment_styles
+    self.assetable.send("#{self.assetable_field_name}_styles")
   end
 end

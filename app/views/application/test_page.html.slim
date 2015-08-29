@@ -1,0 +1,25 @@
+ruby:
+  require 'arbre'
+  a = Arbre::Context.new({username: 333}) do
+    self.extend SimpleForm::ActionViewExtensions::FormHelper
+
+    h1 do
+      "hello"
+    end
+
+    simple_form_for @apartment, url: "/" do
+      f.input :apartment_number
+    end
+  end
+  # a = simple_form_for @apartment, url: "/" do |f|
+  #   f.input(:apartment_number) +
+  #   f.input(:price)
+  #
+  # end
+
+/- a = simple_form_for @apartment, url: "/" do |f|
+  /div style="background: red"
+  = f.input :apartment_number
+  = f.input :price
+
+= a

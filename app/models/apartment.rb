@@ -13,13 +13,19 @@
 #
 
 class Apartment < ActiveRecord::Base
+  extend Enumerize
+
   acts_as_apartment
 
   has_images styles: { thumbnail: "275x180#", large: "940x400#" }
 
-  before_save :compile_fast_attributes
+  enumerize :status, in: [:building_in_process, :built, :project]
+
+  #before_save :compile_fast_attributes
   def compile_fast_attributes
     self.building_complex_fast_link = self.building_complex_through_house.id
   end
+
+  scope :published, proc { all }
 
 end

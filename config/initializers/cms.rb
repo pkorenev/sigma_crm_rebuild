@@ -1,1 +1,0 @@
-#require "cms/active_record_extensions"

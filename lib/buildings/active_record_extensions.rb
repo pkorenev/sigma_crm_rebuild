@@ -19,7 +19,10 @@ module Buildings
       end
 
       def has_apartment_technical_info
-        has_one :apartment_technical_info, as: :actable_as_apartment
+        name = :apartment_technical_info
+        has_one name, as: :actable_as_apartment
+        accepts_nested_attributes_for name
+        attr_accessible name, "#{name}_attributes"
       end
 
       def acts_as_building_complex
@@ -57,13 +60,16 @@ module Buildings
         belongs_to :apartment_house
         addressable
         has_apartment_technical_info
-        has_one :building_complex_through_house, through: :apartment_house
+        has_one :building_complex_through_house, through: :apartment_house, source: :building_complex
         belongs_to :building_complex, foreign_key: :building_complex_fast_link
 
       end
 
       def has_infrastructure
-        has_one :infrastructure
+        name = :infrastructure
+        has_one name
+        accepts_nested_attributes_for name
+        attr_accessible name, "#{name}_attributes"
       end
 
       def has_builder

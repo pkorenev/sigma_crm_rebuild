@@ -4,7 +4,7 @@ class CreateApartments < ActiveRecord::Migration
       t.integer :building_complex_fast_link
       t.integer :apartment_house_id
       t.integer :apartment_number
-      t.string :price_from
+      t.float :price
       t.float :square
       t.string :status
 

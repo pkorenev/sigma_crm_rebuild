@@ -1,7 +1,52 @@
 uk:
   activerecord:
     models:
+      infrastructure: "Інфраструктура"
+      house_main_info: "Основна інформація про будинок"
+      house_technical_info: "Технічна інформація про будинок"
+      apartment_house:
+        one: "Багатоквартирний будинок"
+        other: "Багатоквартирні будинки"
+      apartment:
+        one: "квартира"
+        other: "квартири"
       building_complex:
         one: "Комплекс"
         other: "Комплекси"
         new: "Новий комплекс"
+    attributes:
+      apartment_house:
+        building_complex: "Комплекс"
+        price_from: "ціна від"
+        start_date: "ціна від"
+      building_complex:
+        name: "Назва"
+        main_info: "Основна інформація"
+        technical_info: "Технічна інформація"
+        infrastructure: "Інфраструктура"
+        total_square: "Загальна площа комплексу(Проектна)"
+      apartment_technical_info:
+        level: "Поверх"
+        world_sides: "Сторони світу"
+      house_main_info:
+        house_class: "Клас будинку"
+        status: "Статус"
+        availability: "Наявність"
+        start_date: "Початок будівництва"
+        end_date: "Термін здачі"
+        price_from: "Ціна від, м2"
+        builder_site: "Сайт забудовника"
+        phone: "Детальніше за телефоном"
+      infrastructure:
+        distance_to_pre_school: "Відстань до дошкільного закладу"
+        distance_to_school: "Відстань до загальноосвтньої школи"
+        nearest_metro_station: "Найближча станіція метро"
+        nearest_bus_stop: "Найближча зупинка маршрутки"
+        distance_to_food_markets: "Відстань до продовольчих магазинів"
+        playground: "Спорт майданчик"
+      house_technical_info:
+        sections_count: "Кількість секцій"
+        building_type: "Тип будівництва"
+        earth_area_square: "Площа земельної ділянки"
+        operated_roof: "Експлуатовані покрівлі"
+

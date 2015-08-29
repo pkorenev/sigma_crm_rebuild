@@ -11,9 +11,5 @@
 #
 
 class Client < RegisteredUser
-  crm_admin do
-    index do
 
-    end
-  end
 end

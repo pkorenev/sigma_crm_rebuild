@@ -7,6 +7,10 @@ class CreateHouseTechnicalInfos < ActiveRecord::Migration
       t.integer :sections_count
       t.text :building_type
       t.float :earth_area_square
+      t.text :operated_roof
+
+
+
 
       t.timestamps null: false
     end
