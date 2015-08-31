@@ -1,0 +1,7 @@
+uk:
+  enumerize:
+    sigma/building_complex:
+      status:
+        building_in_process: "Будується"
+        built: "Побудовано"
+        project: "Проект"

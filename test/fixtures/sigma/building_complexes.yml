@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  complex_class: MyString
+  address_coordinates: MyString
+  address_city: MyString
+  address_district: MyString
+  address_street: MyString
+  address_house_number: MyString
+  status: MyString
+  availability: MyString
+  start_date: 2015-08-29
+  end_date: 2015-08-29
+  houses_count: 1
+  price_from: 1.5
+  builder_site: MyString
+  infrastructure: MyString
+
+two:
+  name: MyString
+  complex_class: MyString
+  address_coordinates: MyString
+  address_city: MyString
+  address_district: MyString
+  address_street: MyString
+  address_house_number: MyString
+  status: MyString
+  availability: MyString
+  start_date: 2015-08-29
+  end_date: 2015-08-29
+  houses_count: 1
+  price_from: 1.5
+  builder_site: MyString
+  infrastructure: MyString

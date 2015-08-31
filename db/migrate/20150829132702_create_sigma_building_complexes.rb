@@ -8,11 +8,12 @@ class CreateSigmaBuildingComplexes < ActiveRecord::Migration
 
 
       # address
-      t.string :address_coordinates
-      t.string :address_city
-      t.string :address_district
-      t.string :address_street
-      t.string :address_house_number
+      t.string :coordinates
+      t.string :country
+      t.string :city
+      t.string :district
+      t.string :street
+      t.string :street_number
 
       t.string :status
       t.string :availability
@@ -24,12 +25,12 @@ class CreateSigmaBuildingComplexes < ActiveRecord::Migration
       t.string :phone
 
       # infrastructure
-      t.text :infrastructure_distance_to_pre_school
-      t.text :infrastructure_distance_to_school
-      t.text :infrastructure_distance_to_food_markets
-      t.text :infrastructure_playground
-      t.text :infrastructure_nearest_metro_station
-      t.text :infrastructure_nearest_bus_stop
+      t.text :distance_to_pre_school
+      t.text :distance_to_school
+      t.text :distance_to_food_markets
+      t.text :playground
+      t.text :nearest_metro_station
+      t.text :nearest_bus_stop
 
 
 

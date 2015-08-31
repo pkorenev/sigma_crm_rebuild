@@ -1,3 +1,4 @@
+require_relative "config/initializers/project_gems.rb"
 source 'https://rubygems.org'
 
 
@@ -96,30 +97,10 @@ gem 'simple_form'
 gem "enumerize"
 
 gem 'rails_admin'#, path: "gems/rails_admin"
+#gem 'rails_admin_explorer', path: "gems/rails_admin_explorer"
+
 
 gem 'globalize'
-
-#gem 'activeadmin'
-
-# gem 'react.rb'
-# gem 'react-rails'
-
-engines_path = "../engines"
-gems_path = "../gems"
-
-#gem 'crm', path: "#{engines_path}/crm"
-
-#gem 'addressable', path: "#{gems_path}/addressable"#, require: true
-
-# require 'addressable'
-
-#gem 'attachable', path: "gems/attachable"
-
-gem 'addressable', path: "gems/addressable"
-
-#gem 'crm', path: "engines/crm"
-
-gem 'cms', path: "engines/cms"
 
 gem 'kaminari'
 
@@ -127,3 +108,43 @@ gem 'foundation-rails'
 
 gem "haml2slim"
 
+gem 'require_reloader'
+
+
+
+
+#require FileUtils.dir_name(__FILE__) + '/config/initializers/project_gems'
+
+
+
+
+# # gems related to project
+# PROJECT_GEMS = %w(addressable cms attachable)
+# GEMS_FROM_LOCALHOST = true
+# PROJECT_GEMS.each do |gem_name|
+#   options = {}
+#   if GEMS_FROM_LOCALHOST
+#     options[:path] = "gems/#{gem_name}"
+#   else
+#     options[:github] = "pkorenev/#{gem_name}"
+#     options[:branch] = "master"
+#   end
+#
+#   gem gem_name, options
+# end
+
+
+PROJECT_GEMS.each do |gem_name|
+  options = {}
+  if GEMS_FROM_LOCALHOST
+    options[:path] = "gems/#{gem_name}"
+  else
+    options[:github] = "pkorenev/#{gem_name}"
+    options[:branch] = "master"
+  end
+
+  #puts "gem '#{gem_name}' , #{options.inspect}"
+  send :gem, gem_name, options
+end
+
+gem 'arbre'

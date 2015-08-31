@@ -1,7 +1,8 @@
 #require Gem.loaded_specs['fredit'].stub.gem_dir + "/app/controllers/fredit_controller.rb"
 unless !!ENV['si']
   Rails.application.routes.draw do
-    get "test", to: "application#test"
+    #get "(*args)", to: "application#test_page"
+    #get "test", to: "application#test"
 
     devise_for :users
     constraints subdomain: "crm" do

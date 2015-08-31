@@ -4,6 +4,7 @@ uk:
       infrastructure: "Інфраструктура"
       house_main_info: "Основна інформація про будинок"
       house_technical_info: "Технічна інформація про будинок"
+      apartment_technical_settings: "Технічні дані про квартиру"
       apartment_house:
         one: "Багатоквартирний будинок"
         other: "Багатоквартирні будинки"
@@ -14,39 +15,136 @@ uk:
         one: "Комплекс"
         other: "Комплекси"
         new: "Новий комплекс"
+      house_technical_settings: "Технічні характеристики багатоповерхового будинку"
+
     attributes:
+
+      # common
+      published: "Опуліковано"
+      additional_info: "Додаткова інформація"
+      price: "ціна, грн/м<sup>2</sup>"
+      price_from: "Ціна від, м<sup>2</sup>"
+      building_start_date: "початок будівництва"
+      building_end_date: "термін здачі"
+      name: "Назва"
+      main_info: "Основна інформація"
+      technical_info: "Технічна інформація"
+      infrastructure: "Інфраструктура"
+      total_square: "Загальна площа комплексу(Проектна)"
+      images: "Картинки"
+
+
+      # address
+
+      coordinates: "Координати"
+      country: "Країна"
+      city: "Місто"
+      district: "Район"
+      street: "Вулиця"
+      street_number: "Номер будинку"
+      apartment_number: "Номер квартири"
+
+      # common > complex
+      house_class: "Клас будинку"
+      status: "Статус"
+      availability: "Наявність"
+      start_date: "Початок будівництва"
+      end_date: "Термін здачі"
+      houses_count: "Кількість будинків"
+
+      builder_site: "Сайт забудовника"
+      phone: "Детальніше за телефоном"
+      total_complex_square: "Загальна площа комплексу (проектна)"
+      total_live_square: "Загальна площа житлових приміщень (проектна)"
+      total_accommodations_count: "Загальна кількість житлових приміщень (квартир)"
+      commerce_square_of_residential_premises: "Комерційна площа нежитлових приміщень"
+      apartment_defaults: "Дефолтні технічні характеристики квартири"
+      apartment_house_defaults: "Дефолтні технічні характеристики багатоквартирного будинку"
+
+      # common > infrastructure
+      distance_to_pre_school: "Відстань до дошкільного закладу"
+      distance_to_school: "Відстань до загальноосвтньої школи"
+      nearest_metro_station: "Найближча станіція метро"
+      nearest_bus_stop: "Найближча зупинка маршрутки"
+      distance_to_food_markets: "Відстань до продовольчих магазинів"
+      playground: "Спорт майданчик"
+
+      # common > house
+
+      sections_count: "Кількість секцій"
+      levels_count: ""
+      building_type: "Тип будівництва"
+      earth_area_square: "Площа земельної ділянки"
+      operated_roof: "Експлуатовані покрівлі"
+
+
+      # common > house_settings
+      video_surveillance_system: "Система відеоспостереження"
+      building_process_type: "Тип будівництва"
+      lift_mark: "Марка ліфта (Вантажопідйомність)"
+      devices_setup: "Встановлення приладів обліку (тип, марка)"
+      parking_type: "Тип паркінгу"
+      park_places_count: "Кількість місць для паркування"
+      apply_energy_saving_technologies: "Застосування енергоощадних технологій"
+
+      # common > apartment
+
+      level: "Поверх"
+      world_sides: "Сторони світу"
+      building_premise_number: "№ приміщення(будівельний)"
+
+      live_square: "житлова площа"
+      turnkey: "Під ключ"
+      
+
+      apartment_inner_separator_walls: "Внутрішньоквартирні перегородки"
+      apartment_separator_walls: "Міжквартирні стіни"
+      apartment_type: "Тип квартири"
+      beautification: "Благоустрій"
+      building_code_number: "№ Приміщення (будівельний)"
+      exterior_walls: "Зовнішні стіни"
+      filling_openings_in_walls: "Заповнення прорізів у стінах"
+      entrance_door: "Вхідні двері"
+      windows: "Вікна"
+      heating: "Система опалення"
+      premises_height: "Висота приміщень, м"
+      internal_finishing_work: "Внутрішні оздоблювальні роботи"
+      internal_sewer_system: "Система внутрішньої побутової каналізації"
+      internet: "Інтернет"
+      kitchen_stove_type: "Тип кухонної плити"
+      live_square: "Житлова площа, м<sup>2</sup>"
+      meters: "Встановлення лічильників"
+      telephony: "Телефонія"
+      sanitary_equipment: "Сантехнічні прилади"
+      rooms_count: "Кількість кімнат"
+      section_number: "Секція (будівельний номер)"
+      square: "Площа"
+      state: "Стан, в якому здається квартира"
+      total_square: "Загальна площа, м<sup>2</sup>"
+      tv: "Телебачення"
+
+      ventilation: "Вентиляція"
+      water_supply: "Внутрішні системи холодного та гарячого водопостачання"
+      wiring: "Електропроводка"
+
+
+      # libraries
+      asset:
+        data: "Файл"
+
+      # apartment_house
       apartment_house:
         building_complex: "Комплекс"
-        price_from: "ціна від"
-        start_date: "ціна від"
-      building_complex:
-        name: "Назва"
-        main_info: "Основна інформація"
-        technical_info: "Технічна інформація"
-        infrastructure: "Інфраструктура"
-        total_square: "Загальна площа комплексу(Проектна)"
-      apartment_technical_info:
-        level: "Поверх"
-        world_sides: "Сторони світу"
-      house_main_info:
-        house_class: "Клас будинку"
-        status: "Статус"
-        availability: "Наявність"
-        start_date: "Початок будівництва"
-        end_date: "Термін здачі"
-        price_from: "Ціна від, м2"
-        builder_site: "Сайт забудовника"
-        phone: "Детальніше за телефоном"
-      infrastructure:
-        distance_to_pre_school: "Відстань до дошкільного закладу"
-        distance_to_school: "Відстань до загальноосвтньої школи"
-        nearest_metro_station: "Найближча станіція метро"
-        nearest_bus_stop: "Найближча зупинка маршрутки"
-        distance_to_food_markets: "Відстань до продовольчих магазинів"
-        playground: "Спорт майданчик"
-      house_technical_info:
-        sections_count: "Кількість секцій"
-        building_type: "Тип будівництва"
-        earth_area_square: "Площа земельної ділянки"
-        operated_roof: "Експлуатовані покрівлі"
 
+
+  formats:
+    street_address: "вул. %{street}, %{street_number}"
+
+
+
+
+
+
+  admin:
+    navigation_labels:
+      apartment: "Нерухомість"

@@ -64,19 +64,19 @@ uk:
         menu: "Менежер файлів"
         breadcrumb: "Менеджер файлів"
       dashboard:
-        title: "Панель керування"
-        menu: "Dashboard"
-        breadcrumb: "Dashboard"
+        title: "Дашборд"
+        menu: "Дашборд"
+        breadcrumb: "Дашборд"
       index:
-        title: "List of %{model_label_plural}"
-        menu: "List"
+        title: "Список %{model_label_plural}"
+        menu: "Список"
         breadcrumb: "%{model_label_plural}"
       show:
         title: "Інформація про %{model_label} '%{object_label}'"
         menu: "Переглянути"
         breadcrumb: "%{object_label}"
       show_in_app:
-        menu: "Show in app"
+        menu: "Показати на сайті"
       new:
         title: "Новий %{model_label}"
         menu: "Додати новий"
@@ -101,12 +101,12 @@ uk:
         breadcrumb: "Multiple delete"
         bulk_link: "Delete selected %{model_label_plural}"
       export:
-        title: "Export %{model_label_plural}"
-        menu: "Export"
-        breadcrumb: "Export"
+        title: "Експортувати %{model_label_plural}"
+        menu: "Експортувати"
+        breadcrumb: "Експорт"
         link: "Export found %{model_label_plural}"
         bulk_link: "Export selected %{model_label_plural}"
-        done: "exported"
+        done: "експортовано"
       history_index:
         title: "History for %{model_label_plural}"
         menu: "History"
@@ -122,8 +122,8 @@ uk:
     form:
       cancel: "Cancel"
       basic_info: "Basic info"
-      required: "Required"
-      optional: "Optional"
+      required: "Обов’язкове"
+      optional: "Необов’язкове"
       one_char: "character"
       char_length_up_to: "length up to"
       char_length_of: "length of"

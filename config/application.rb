@@ -18,7 +18,8 @@ module Sigma
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :en
+    config.i18n.available_locales = [:uk, :en]
+    config.i18n.default_locale = :uk
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
@@ -35,9 +36,19 @@ module Sigma
     #   config.autoload_paths += Dir["#{config.root}/vendor/gems/*/lib/**/"]
     # end
 
-    if Rails.env.development?
-      config.eager_load = true
-      config.autoload_paths += ["lib", "config/initializers"].map{|p| Rails.root.join(p) }
+    if ::GEMS_FROM_LOCALHOST
+      if Rails.env.development?
+        config.eager_load = true
+        #RequireReloader.watch("rails_admin")
+        #RequireReloader.watch_local_gems!
+
+
+        watch_gems = ::PROJECT_GEMS
+
+        watch_gems.each do |gem_name|
+          RequireReloader.watch(gem_name)
+        end
+      end
     end
   end
 end

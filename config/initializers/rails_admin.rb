@@ -1,5 +1,27 @@
 unless !!ENV["si"]
   if defined? RailsAdmin
+
+    def model_defaults
+      resource_class = self.abstract_model.model_name.constantize
+      label do
+        resource_class.human_class_name
+      end
+
+      label_plural do
+        resource_class.human_class_name(multiple: true)
+      end
+
+      if (path = resource_class.name.split("::")).count == 2 && path[0] == 'Sigma'
+        navigation_label false
+      end
+    end
+
+    def apartment_navigation_label
+      navigation_label do
+        I18n.t("admin.navigation_labels.apartment")
+      end
+    end
+
     RailsAdmin.config do |config|
 
       ### Popular gems integration
@@ -47,6 +69,7 @@ unless !!ENV["si"]
       end
 
       config.model Apartment do
+        visible false
         edit do
           group :main_info do
             field :apartment_house do
@@ -76,6 +99,7 @@ unless !!ENV["si"]
       end
 
       config.model BuildingComplex do
+        visible false
 
         edit do
           field :name
@@ -87,6 +111,7 @@ unless !!ENV["si"]
       end
 
       config.model ApartmentHouse do
+        visible false
         field :builder_complex
         field :status
       end
@@ -132,14 +157,71 @@ unless !!ENV["si"]
 
       end
 
+      config.model Asset do
+        nested do
+          configure :assetable do
+            hide
+          end
 
+          configure :assetable_field_name do
+            hide
+          end
+        end
+      end
 
       config.model Sigma::ApartmentTechnicalSettings do
         visible false
+
+        nested do
+          configure :building do
+            hide
+          end
+        end
       end
 
       config.model Sigma::HouseTechnicalSettings do
         visible false
+
+        nested do
+          configure :building do
+            hide
+          end
+        end
+      end
+
+      config.model Sigma::BuildingComplex do |m|
+        model_defaults
+        apartment_navigation_label
+
+        edit do
+          configure :apartments do
+            hide
+          end
+        end
+
+        list do
+          field :name
+          field :city
+          field :complex_class
+          field :price_from
+          field :apartment_houses_count, :integer do |*args|
+
+          end
+          field :status
+        end
+      end
+
+      config.model Sigma::ApartmentHouse do |m|
+        model_defaults
+        weight 1
+        apartment_navigation_label
+      end
+
+      config.model Sigma::Apartment do |m|
+        model_defaults
+        weight 1
+        apartment_navigation_label
+
       end
     end
   end

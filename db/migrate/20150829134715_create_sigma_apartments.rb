@@ -2,7 +2,6 @@ class CreateSigmaApartments < ActiveRecord::Migration
   def change
     create_table :sigma_apartments do |t|
       t.boolean :published
-      t.string :name
       t.belongs_to :building_complex
       t.belongs_to :apartment_house
       t.string :apartment_number

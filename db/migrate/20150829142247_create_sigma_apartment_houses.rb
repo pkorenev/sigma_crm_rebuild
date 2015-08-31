@@ -6,9 +6,9 @@ class CreateSigmaApartmentHouses < ActiveRecord::Migration
       t.belongs_to :building_complex
 
       # address
-      t.string :address_coordinates
-      t.string :address_street
-      t.string :address_house_number
+      t.string :coordinates
+      t.string :street
+      t.string :street_number
 
       t.string :status
 
