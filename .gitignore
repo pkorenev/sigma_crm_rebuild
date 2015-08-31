@@ -1,0 +1,14 @@
+/db/*.sqlite3
+/db/schema.rb
+
+/config/initializers/project_gems.rb
+/log/*
+/tmp/*
+/vendor/*
+/public/*
+Gemfile.lock
+
+.idea
+
+/gems
+/engines
