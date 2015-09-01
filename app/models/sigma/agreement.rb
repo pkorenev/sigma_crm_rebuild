@@ -10,6 +10,8 @@
 #
 
 class Sigma::Agreement < ActiveRecord::Base
+  self.table_name = :sigma_agreements
+
   belongs_to :apartment, class_name: "Sigma::Apartment"
   belongs_to :client, class_name: "Sigma::Client"
   belongs_to :manager, class_name: "Sigma::Administrator"
