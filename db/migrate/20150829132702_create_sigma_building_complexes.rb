@@ -5,6 +5,7 @@ class CreateSigmaBuildingComplexes < ActiveRecord::Migration
 
       # main info
       t.string :name
+      t.string :complex_class
 
 
       # address

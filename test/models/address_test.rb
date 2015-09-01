@@ -13,6 +13,8 @@
 #  house_number     :string
 #  apartment_number :string
 #  google_place_id  :string
+#  latitude         :float
+#  longitude        :float
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

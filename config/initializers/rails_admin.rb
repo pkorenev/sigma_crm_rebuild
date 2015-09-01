@@ -22,6 +22,10 @@ unless !!ENV["si"]
       end
     end
 
+    def group_with_i18n_label label, &block
+      group I18n.t("admin.field_group_labels.#{label}"), &block
+    end
+
     RailsAdmin.config do |config|
 
       ### Popular gems integration
@@ -119,7 +123,6 @@ unless !!ENV["si"]
       config.model HouseMainInfo do
         visible false
         nested do
-          field :house_class
           #field :address
           #field :status
           field :availability
@@ -197,6 +200,58 @@ unless !!ENV["si"]
           configure :apartments do
             hide
           end
+
+          group_with_i18n_label :main_info do
+            field :name
+            field :complex_class
+            field :country
+            field :city
+            field :district
+            field :street
+            field :street_number
+            field :coordinates
+            field :availability
+            field :building_start_date do
+              date_format do
+                "year_month"
+              end
+            end
+            field :building_end_date do
+              date_format do
+                "year_month"
+              end
+            end
+            field :price_from
+            field :builder_site
+            field :phone
+
+            field :apartment_houses_count do
+              read_only true
+            end
+          end
+
+
+          group_with_i18n_label :infrastructure do
+            field :distance_to_pre_school
+            field :distance_to_school
+            field :distance_to_food_markets
+            field :playground
+            field :nearest_metro_station
+            field :nearest_bus_stop
+          end
+
+          group_with_i18n_label :technical_details do
+            field :earth_area_square
+            field :total_complex_square
+            field :total_live_square
+            field :total_accommodations_count
+            field :commerce_square_of_residential_premises
+          end
+
+          group_with_i18n_label :defaults do
+            field :apartment_house_defaults
+            field :apartment_defaults
+          end
         end
 
         list do
@@ -222,6 +277,15 @@ unless !!ENV["si"]
         weight 1
         apartment_navigation_label
 
+      end
+
+      config.model Sigma::Agreement do
+        #searchable :manager
+        list do
+          #filters [:manager]
+          scopes [:laid, :unlaid]
+
+        end
       end
     end
   end

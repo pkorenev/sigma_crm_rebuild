@@ -148,3 +148,5 @@ PROJECT_GEMS.each do |gem_name|
 end
 
 gem 'arbre'
+
+gem 'rails-i18n'

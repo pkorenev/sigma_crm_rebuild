@@ -8,6 +8,7 @@
 #  sections_count        :integer
 #  building_type         :text
 #  earth_area_square     :float
+#  operated_roof         :text
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #

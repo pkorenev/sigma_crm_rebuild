@@ -5,7 +5,7 @@ class CreateSigmaHouseTechnicalSettings < ActiveRecord::Migration
       t.string :building_type
       t.integer :building_id
 
-      t.string :house_class
+
       t.text :operated_roof
       t.text :building_process_type
       t.integer :sections_count

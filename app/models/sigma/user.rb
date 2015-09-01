@@ -1,10 +1,10 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: sigma_users
 #
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
-#  encrypted_password     :string           default(""), not null
+#  encrypted_password     :string           default("")
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -13,10 +13,6 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  first_name             :string
-#  middle_name            :string
-#  last_name              :string
-#  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  invitation_token       :string
@@ -29,6 +25,9 @@
 #  invitations_count      :integer          default(0)
 #
 
-class RegisteredUser < User
-
+class Sigma::User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :invitable, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 end

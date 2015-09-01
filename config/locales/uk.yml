@@ -23,14 +23,14 @@ uk:
       published: "Опуліковано"
       additional_info: "Додаткова інформація"
       price: "ціна, грн/м<sup>2</sup>"
-      price_from: "Ціна від, м<sup>2</sup>"
+      price_from: "Ціна від, грн/м<sup>2</sup>"
       building_start_date: "початок будівництва"
       building_end_date: "термін здачі"
       name: "Назва"
       main_info: "Основна інформація"
       technical_info: "Технічна інформація"
       infrastructure: "Інфраструктура"
-      total_square: "Загальна площа комплексу(Проектна)"
+      total_square: "Загальна площа комплексу(Проектна), м<sup>2</sup>"
       images: "Картинки"
 
 
@@ -45,6 +45,7 @@ uk:
       apartment_number: "Номер квартири"
 
       # common > complex
+      complex_class: "Клас ЖК"
       house_class: "Клас будинку"
       status: "Статус"
       availability: "Наявність"
@@ -54,10 +55,10 @@ uk:
 
       builder_site: "Сайт забудовника"
       phone: "Детальніше за телефоном"
-      total_complex_square: "Загальна площа комплексу (проектна)"
-      total_live_square: "Загальна площа житлових приміщень (проектна)"
+      total_complex_square: "Загальна площа комплексу (проектна), м<sup>2</sup>"
+      total_live_square: "Загальна площа житлових приміщень (проектна), м<sup>2</sup>"
       total_accommodations_count: "Загальна кількість житлових приміщень (квартир)"
-      commerce_square_of_residential_premises: "Комерційна площа нежитлових приміщень"
+      commerce_square_of_residential_premises: "Комерційна площа нежитлових приміщень, м<sup>2</sup>"
       apartment_defaults: "Дефолтні технічні характеристики квартири"
       apartment_house_defaults: "Дефолтні технічні характеристики багатоквартирного будинку"
 
@@ -74,7 +75,7 @@ uk:
       sections_count: "Кількість секцій"
       levels_count: ""
       building_type: "Тип будівництва"
-      earth_area_square: "Площа земельної ділянки"
+      earth_area_square: "Площа земельної ділянки, га"
       operated_roof: "Експлуатовані покрівлі"
 
 
@@ -148,3 +149,8 @@ uk:
   admin:
     navigation_labels:
       apartment: "Нерухомість"
+    field_group_labels:
+      main_info: "Основна інформація"
+      technical_details: "Технічні характеристики"
+      infrastructure: "Інфраструктура"
+      defaults: "Дефолти"

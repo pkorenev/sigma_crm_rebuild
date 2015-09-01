@@ -3,7 +3,8 @@ class ActionViewHelper
 end
 
 module CommonAttributeName
-  def human_attribute_name(attr_name)
+  def human_attribute_name(attr_name, **options)
+
     classes = [self]
     res = nil
     classes.each do |klass|

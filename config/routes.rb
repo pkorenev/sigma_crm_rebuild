@@ -1,10 +1,11 @@
 #require Gem.loaded_specs['fredit'].stub.gem_dir + "/app/controllers/fredit_controller.rb"
 unless !!ENV['si']
   Rails.application.routes.draw do
+    devise_for :users, class_name: "Sigma::User"
     #get "(*args)", to: "application#test_page"
     #get "test", to: "application#test"
 
-    devise_for :users
+    #devise_for :users
     constraints subdomain: "crm" do
       mount RailsAdmin::Engine => '', as: 'rails_admin'
     end
@@ -14,7 +15,6 @@ unless !!ENV['si']
       resources :complexes
       resources :apartment_houses
       resources :apartments
-
     end
 
     #mount Cms::Engine, at: ""

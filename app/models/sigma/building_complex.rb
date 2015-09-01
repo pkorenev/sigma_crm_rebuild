@@ -1,3 +1,39 @@
+# == Schema Information
+#
+# Table name: sigma_building_complexes
+#
+#  id                                      :integer          not null, primary key
+#  name                                    :string
+#  complex_class                           :string
+#  coordinates                             :string
+#  country                                 :string
+#  city                                    :string
+#  district                                :string
+#  street                                  :string
+#  street_number                           :string
+#  status                                  :string
+#  availability                            :string
+#  building_start_date                     :date
+#  building_end_date                       :date
+#  houses_count                            :integer
+#  price_from                              :float
+#  builder_site                            :string
+#  phone                                   :string
+#  distance_to_pre_school                  :text
+#  distance_to_school                      :text
+#  distance_to_food_markets                :text
+#  playground                              :text
+#  nearest_metro_station                   :text
+#  nearest_bus_stop                        :text
+#  earth_area_square                       :float
+#  total_complex_square                    :float
+#  total_live_square                       :float
+#  total_accommodations_count              :integer
+#  commerce_square_of_residential_premises :float
+#  created_at                              :datetime         not null
+#  updated_at                              :datetime         not null
+#
+
 class Sigma::BuildingComplex < ActiveRecord::Base
   self.table_name = :sigma_building_complexes
   attr_accessible *attribute_names
@@ -19,11 +55,13 @@ class Sigma::BuildingComplex < ActiveRecord::Base
 
   enumerize :status, in: [:building_in_process, :built, :project]
 
+  enumerize :complex_class, in: [:delux, :club, :elite, :business, :comfort, :standard, :econom]
+  enumerize :availability, in: [:available_apartments_or_square, :no_available_apartments, :add_project, :reservation]
+
+  validates :complex_class, presence: true
+
+
   def apartment_houses_count
     apartment_houses.length
-  end
-
-  def complex_class
-    apartment_house_defaults.try(&:house_class)
   end
 end
