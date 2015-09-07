@@ -1,6 +1,8 @@
 #require Gem.loaded_specs['fredit'].stub.gem_dir + "/app/controllers/fredit_controller.rb"
 unless !!ENV['si']
   Rails.application.routes.draw do
+    mount Attachable::Engine => "", as: "attachable"
+
   mount Ckeditor::Engine => '/ckeditor'
     devise_for :users, class_name: "Sigma::User"
     #get "(*args)", to: "application#test_page"
