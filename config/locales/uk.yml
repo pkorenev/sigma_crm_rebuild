@@ -45,6 +45,8 @@ uk:
       apartment_number: "Номер квартири"
 
       # common > complex
+      banner_images: "Картинки для баннера"
+      gallery_images: "Картинки для галереї"
       complex_class: "Клас ЖК"
       house_class: "Клас будинку"
       status: "Статус"
