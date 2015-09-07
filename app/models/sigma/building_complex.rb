@@ -58,10 +58,18 @@ class Sigma::BuildingComplex < ActiveRecord::Base
   enumerize :complex_class, in: [:delux, :club, :elite, :business, :comfort, :standard, :econom]
   enumerize :availability, in: [:available_apartments_or_square, :no_available_apartments, :add_project, :reservation]
 
-  validates :complex_class, presence: true
-
   has_images :banner_images, styles: {  thumbnail: "273x180#", large: "940x500#" }
   has_images :gallery_images, styles: { gallery_image: "1440x900#", gallery_thumb: "96x60#" }
+
+
+  # =========================================
+  # -----------------------------------------
+  # Validations
+  # -----------------------------------------
+  # =========================================
+  validates :name, presence: :true, uniqueness: true
+  validates :complex_class, presence: true
+  validates :country, :city, presence: true
 
   def apartment_houses_count
     apartment_houses.length
