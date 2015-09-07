@@ -158,6 +158,8 @@ unless !!ENV["si"]
           end
 
           group :content do
+            field :banner_images
+            field :gallery_images
             field :html_description, :ck_editor
           end
         end
