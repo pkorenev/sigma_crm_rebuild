@@ -54,6 +54,7 @@ uk:
       start_date: "Початок будівництва"
       end_date: "Термін здачі"
       houses_count: "Кількість будинків"
+      apartment_houses_count: "Кількість будинків"
 
       builder_site: "Сайт забудовника"
       phone: "Детальніше за телефоном"
