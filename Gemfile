@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+require_relative "bin/bundler_extensions"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
