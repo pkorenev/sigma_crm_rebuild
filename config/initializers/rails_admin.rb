@@ -186,7 +186,7 @@ unless !!ENV["si"]
         apartment_navigation_label
 
         edit do
-          configure :images, :hidden
+
         end
 
       end

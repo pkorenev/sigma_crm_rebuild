@@ -60,6 +60,8 @@ class Sigma::BuildingComplex < ActiveRecord::Base
 
   validates :complex_class, presence: true
 
+  has_images :banner_images, styles: {  thumbnail: "273x180#", large: "940x500#" }
+  has_images :gallery_images, styles: { gallery_image: "1440x900#", gallery_thumb: "96x60#" }
 
   def apartment_houses_count
     apartment_houses.length

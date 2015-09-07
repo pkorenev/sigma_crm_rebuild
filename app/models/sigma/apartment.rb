@@ -33,7 +33,7 @@ class Sigma::Apartment < ActiveRecord::Base
   attr_accessible :building_complex
   attr_accessible :apartment_house
 
-  has_images
+  has_images :banner_images, styles: { thumbnail: "273x180#", large: "940x400#" }
 
   enumerize :apartment_type, in: [:general, :studio, :mansard, :two_levels]
 
