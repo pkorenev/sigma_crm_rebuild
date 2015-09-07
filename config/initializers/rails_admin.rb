@@ -37,7 +37,7 @@ unless !!ENV["si"]
       # config.current_user_method(&:current_user)
 
       ## == Cancan ==
-      config.authorize_with :cancan
+      #config.authorize_with :cancan
 
       ## == PaperTrail ==
       # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
@@ -62,9 +62,9 @@ unless !!ENV["si"]
         # history_show
       end
 
-      config.excluded_models += ["Cms::HtmlBlock", "Cms::SitemapElement"]
 
-      hidden_models = [Address, AdministrativeUserInfo, ApartmentTechnicalInfo, Asset, ClientInfo, HouseMainInfo, HouseTechnicalInfo, Infrastructure, Page, SeoTags]
+
+      hidden_models = []
 
       hidden_models.each do |m|
         config.model m do
@@ -72,105 +72,9 @@ unless !!ENV["si"]
         end
       end
 
-      config.model Apartment do
-        visible false
-        edit do
-          group :main_info do
-            field :apartment_house do
-              @order = 200
-            end
-            field :apartment_number
-            field :price
-            field :square
-            field :status
-          end
 
-          group :apartment_technical_info do
-            field :apartment_technical_info
-          end
+      Attachable::Asset.configure_rails_admin(config)
 
-          group :attachments do
-            field :images, :images
-          end
-        end
-      end
-
-      config.model ApartmentTechnicalInfo do
-        visible false
-        nested do
-          configure :actable_as_apartment, :hidden
-        end
-      end
-
-      config.model BuildingComplex do
-        visible false
-
-        edit do
-          field :name
-          field :main_info
-          field :technical_info
-          field :infrastructure
-          field :total_square
-        end
-      end
-
-      config.model ApartmentHouse do
-        visible false
-        field :builder_complex
-        field :status
-      end
-
-      config.model HouseMainInfo do
-        visible false
-        nested do
-          #field :address
-          #field :status
-          field :availability
-          field :start_date
-          field :end_date
-          field :price_from
-          field :builder_site
-          field :phone
-        end
-      end
-
-      config.model HouseTechnicalInfo do
-        visible false
-        nested do
-          field :sections_count
-          field :building_type
-          field :earth_area_square
-          field :operated_roof
-        end
-      end
-
-      config.model Infrastructure do
-        visible false
-        nested do
-          field :distance_to_pre_school
-          field :distance_to_school
-          field :nearest_metro_station
-          field :nearest_bus_stop
-          field :distance_to_food_markets
-          field :playground
-        end
-      end
-
-      config.model ApartmentHouse do
-
-      end
-
-      config.model Asset do
-        nested do
-          configure :assetable do
-            hide
-          end
-
-          configure :assetable_field_name do
-            hide
-          end
-        end
-      end
 
       config.model Sigma::ApartmentTechnicalSettings do
         visible false
@@ -252,6 +156,10 @@ unless !!ENV["si"]
             field :apartment_house_defaults
             field :apartment_defaults
           end
+
+          group :content do
+            field :html_description, :ck_editor
+          end
         end
 
         list do
@@ -277,15 +185,48 @@ unless !!ENV["si"]
         weight 1
         apartment_navigation_label
 
+        edit do
+          configure :images, :hidden
+        end
+
+      end
+
+      config.model Sigma::User do
+        visible false
+      end
+
+      config.model Sigma::Administrator do
+        visible false
+      end
+
+      config.model Sigma::Client do
+        visible false
       end
 
       config.model Sigma::Agreement do
+        visible false
         #searchable :manager
         list do
           #filters [:manager]
           scopes [:laid, :unlaid]
 
         end
+      end
+
+      config.model Article do
+        visible false
+      end
+
+      config.model Ckeditor::Asset do
+        visible false
+      end
+
+      config.model Ckeditor::Picture do
+        visible false
+      end
+
+      config.model Ckeditor::AttachmentFile do
+        visible false
       end
     end
   end

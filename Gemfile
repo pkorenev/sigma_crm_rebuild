@@ -1,9 +1,8 @@
-require_relative "config/initializers/project_gems.rb"
 source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets
@@ -113,40 +112,14 @@ gem 'require_reloader'
 
 
 
-#require FileUtils.dir_name(__FILE__) + '/config/initializers/project_gems'
-
-
-
-
-# # gems related to project
-# PROJECT_GEMS = %w(addressable cms attachable)
-# GEMS_FROM_LOCALHOST = true
-# PROJECT_GEMS.each do |gem_name|
-#   options = {}
-#   if GEMS_FROM_LOCALHOST
-#     options[:path] = "gems/#{gem_name}"
-#   else
-#     options[:github] = "pkorenev/#{gem_name}"
-#     options[:branch] = "master"
-#   end
-#
-#   gem gem_name, options
-# end
-
-
-PROJECT_GEMS.each do |gem_name|
-  options = {}
-  if GEMS_FROM_LOCALHOST
-    options[:path] = "gems/#{gem_name}"
-  else
-    options[:github] = "pkorenev/#{gem_name}"
-    options[:branch] = "master"
-  end
-
-  #puts "gem '#{gem_name}' , #{options.inspect}"
-  send :gem, gem_name, options
-end
-
 gem 'arbre'
 
 gem 'rails-i18n'
+
+
+local_gem 'addressable'
+local_gem "attachable"
+local_gem "auto_reload"
+local_gem "rails-i18n-extensions"
+
+gem 'ckeditor'

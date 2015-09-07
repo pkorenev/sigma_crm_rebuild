@@ -1,0 +1,5 @@
+permissions:
+  object_operations:
+    - show
+    - create
+    - edit

@@ -36,19 +36,21 @@ module Sigma
     #   config.autoload_paths += Dir["#{config.root}/vendor/gems/*/lib/**/"]
     # end
 
-    if ::GEMS_FROM_LOCALHOST
-      if Rails.env.development?
-        config.eager_load = true
-        #RequireReloader.watch("rails_admin")
-        #RequireReloader.watch_local_gems!
+    # if ::GEMS_FROM_LOCALHOST
+    #   if Rails.env.development?
+    #     config.eager_load = true
+    #     #RequireReloader.watch("rails_admin")
+    #     #RequireReloader.watch_local_gems!
+    #
+    #
+    #     watch_gems = ::PROJECT_GEMS
+    #
+    #     watch_gems.each do |gem_name|
+    #       RequireReloader.watch(gem_name)
+    #     end
+    #   end
+    # end
 
-
-        watch_gems = ::PROJECT_GEMS
-
-        watch_gems.each do |gem_name|
-          RequireReloader.watch(gem_name)
-        end
-      end
-    end
+    #reload_local_gems
   end
 end

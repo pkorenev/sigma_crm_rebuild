@@ -1,1 +1,1 @@
-require 'attachable'
+Attachable.use_translations = false

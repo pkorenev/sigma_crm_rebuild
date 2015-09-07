@@ -16,7 +16,8 @@ class CreateSigmaApartmentHouses < ActiveRecord::Migration
       t.date :building_end_date
 
 
-      t.float :price_from
+      t.integer :price_from
+      t.datetime :price_from_approved_at
 
       # technical info
       t.integer :levels_count

@@ -4,8 +4,11 @@ class CreateSigmaBuildingComplexes < ActiveRecord::Migration
 
 
       # main info
+      t.boolean :published
+      t.text :html_description
       t.string :name
       t.string :complex_class
+      t.integer :apartment_houses_count
 
 
       # address
@@ -21,7 +24,8 @@ class CreateSigmaBuildingComplexes < ActiveRecord::Migration
       t.date :building_start_date
       t.date :building_end_date
       t.integer :houses_count
-      t.float :price_from
+      t.integer :price_from
+      t.datetime :price_from_approved_at
       t.string :builder_site
       t.string :phone
 
@@ -53,6 +57,9 @@ class CreateSigmaBuildingComplexes < ActiveRecord::Migration
       # table :sigma_apartment_technical_settings
 
 
+
+      # count fields
+      t.integer :apartment_houses_count
 
       t.timestamps null: false
     end

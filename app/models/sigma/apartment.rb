@@ -35,7 +35,7 @@ class Sigma::Apartment < ActiveRecord::Base
 
   has_images
 
-  enumerize :apartment_type, in: [:one_room, :two_rooms, :three_rooms, :four_rooms, :five_rooms_plus, :studio, :mansard, :two_levels]
+  enumerize :apartment_type, in: [:general, :studio, :mansard, :two_levels]
 
   def street_address
     I18n.t("formats.street_address", street: apartment_house.street, street_number: apartment_house.street_number)

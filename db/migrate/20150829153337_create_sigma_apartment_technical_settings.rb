@@ -24,6 +24,8 @@ class CreateSigmaApartmentTechnicalSettings < ActiveRecord::Migration
       t.text :internal_finishing_work
       t.text :additional_info
 
+
+
       t.timestamps null: false
     end
   end
