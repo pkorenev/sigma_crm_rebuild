@@ -1,7 +1,7 @@
 #require Gem.loaded_specs['fredit'].stub.gem_dir + "/app/controllers/fredit_controller.rb"
 unless !!ENV['si']
   Rails.application.routes.draw do
-    mount Attachable::Engine => "", as: "attachable"
+    mount Attachable::Engine => "", as: "attachable"#, subdomain: "assets"
 
   mount Ckeditor::Engine => '/ckeditor'
     devise_for :users, class_name: "Sigma::User"
@@ -40,6 +40,8 @@ unless !!ENV['si']
       resources :assets
     end
 
+
+    match "*path", to: "errors#not_found", via: [:get, :post, :update, :put, :delete]
     #root to: "crm_admin#dashboard"
 
     #devise_for :accounts
