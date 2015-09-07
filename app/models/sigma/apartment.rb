@@ -37,6 +37,17 @@ class Sigma::Apartment < ActiveRecord::Base
 
   enumerize :apartment_type, in: [:general, :studio, :mansard, :two_levels]
 
+
+  # =========================================
+  # -----------------------------------------
+  # Validations
+  # -----------------------------------------
+  # =========================================
+  validates :building_complex, presence: true
+  validates :apartment_house, presence: true
+  validates :apartment_number, presence: true
+  validates :apartment_type, presence: true
+
   def street_address
     I18n.t("formats.street_address", street: apartment_house.street, street_number: apartment_house.street_number)
   end

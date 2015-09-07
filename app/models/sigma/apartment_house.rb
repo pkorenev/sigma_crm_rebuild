@@ -40,6 +40,14 @@ class Sigma::ApartmentHouse < ActiveRecord::Base
 
   enumerize :status, in: [:building_in_process, :built, :project]
 
+  # =========================================
+  # -----------------------------------------
+  # Validations
+  # -----------------------------------------
+  # =========================================
+  validates :building_complex, presence: :true
+  validates :status, presence: true
+
   def name
 
   end

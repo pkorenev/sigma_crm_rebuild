@@ -75,7 +75,8 @@ uk:
       # common > house
 
       sections_count: "Кількість секцій"
-      levels_count: ""
+      levels_count: "Кількість поверхів"
+      apartments_count: "Кількість квартир"
       building_type: "Тип будівництва"
       earth_area_square: "Площа земельної ділянки, га"
       operated_roof: "Експлуатовані покрівлі"
