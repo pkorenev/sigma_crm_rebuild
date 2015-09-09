@@ -28,7 +28,6 @@ class CreateSigmaBuildingComplexes < ActiveRecord::Migration
       t.integer :houses_count
       t.integer :price_from
       t.datetime :price_from_approved_at
-      t.string :builder_site
       t.string :phone
 
       # infrastructure
