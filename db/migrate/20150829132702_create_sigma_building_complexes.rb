@@ -5,10 +5,12 @@ class CreateSigmaBuildingComplexes < ActiveRecord::Migration
 
       # main info
       t.boolean :published
+      t.text :short_description
       t.text :html_description
       t.string :name
       t.string :complex_class
       t.integer :apartment_houses_count
+      t.string :site
 
 
       # address

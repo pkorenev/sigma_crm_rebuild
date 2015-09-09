@@ -32,6 +32,13 @@ class DeviseCreateSigmaUsers < ActiveRecord::Migration
 
 
       t.timestamps null: false
+
+      t.string :username
+
+      add_column :sigma_users, :avatar_file_name, :string
+      add_column :sigma_users, :avatar_content_type, :string
+      add_column :sigma_users, :avatar_file_size, :integer
+      add_column :sigma_users, :avatar_updated_at, :datetime
     end
 
     add_index :sigma_users, :email,                unique: true
