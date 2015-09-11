@@ -94,6 +94,7 @@ uk:
 
       # common > apartment
 
+      kitchen_square: "Площа кухні, м<sup>2</sup>"
       level: "Поверх"
       world_sides: "Сторони світу"
       building_premise_number: "№ приміщення(будівельний)"
