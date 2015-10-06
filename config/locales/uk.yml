@@ -16,6 +16,14 @@ uk:
         other: "Комплекси"
         new: "Новий комплекс"
       house_technical_settings: "Технічні характеристики багатоповерхового будинку"
+      sigma/builder:
+        one: "Забудовник"
+        other: "Забудовники"
+        new: "Новий забудовник"
+      attachable/asset:
+        one: "Атачмент"
+        other: "Атачменти"
+        new: "Новий атачмент"
 
     attributes:
 
@@ -34,6 +42,9 @@ uk:
       images: "Картинки"
 
 
+
+
+
       # address
 
       coordinates: "Координати"
@@ -45,6 +56,7 @@ uk:
       apartment_number: "Номер квартири"
 
       # common > complex
+      accomodation_commercial_square: "Комерційна площа житлових приміщень"
       banner_images: "Картинки для баннера"
       gallery_images: "Картинки для галереї"
       complex_class: "Клас ЖК"
@@ -55,6 +67,10 @@ uk:
       end_date: "Термін здачі"
       houses_count: "Кількість будинків"
       apartment_houses_count: "Кількість будинків"
+      complex_url: "Сайт комплексу"
+      short_description: "Короткий опис"
+      main_description_html: "Основний опис"
+      infrastructure_description_html: "Інфраструктура"
 
       builder_site: "Сайт забудовника"
       phone: "Детальніше за телефоном"
@@ -64,6 +80,17 @@ uk:
       commerce_square_of_residential_premises: "Комерційна площа нежитлових приміщень, м<sup>2</sup>"
       apartment_defaults: "Дефолтні технічні характеристики квартири"
       apartment_house_defaults: "Дефолтні технічні характеристики багатоквартирного будинку"
+
+      internal_finishing_work_in_accommodations: "Внутрішні оздоблювальні роботи в житлових приміщеннях"
+      internal_finishing_work_in_residential_premises: "Внутрішні оздоблювальні роботи в нежитлових приміщеннях"
+      internal_finishing_work_in_common_use_premises: "Внутрішні оздоблювальні роботи в приміщеннях загального користування"
+      insulation_type_and_material: "Тип та матеріал утеплення"
+
+      apartment_1_rooms_count: "Кількість 1-кімнатних квартир"
+      apartment_2_rooms_count: "Кількість 2-кімнатних квартир"
+      apartment_3_rooms_count: "Кількість 3-кімнатних квартир"
+      apartment_4_rooms_count: "Кількість 4-кімнатних квартир"
+      apartment_5_plus_rooms_count: "Кількість 5+ кімнатних квартир"
 
       # common > infrastructure
       distance_to_pre_school: "Відстань до дошкільного закладу"
@@ -101,6 +128,8 @@ uk:
 
       live_square: "житлова площа"
       turnkey: "Під ключ"
+      best: "Краща квартира"
+      pdf_file: "pdf файл"
       
 
       apartment_inner_separator_walls: "Внутрішньоквартирні перегородки"
@@ -141,6 +170,9 @@ uk:
       # apartment_house
       apartment_house:
         building_complex: "Комплекс"
+
+      # apartment
+      
 
 
   formats:

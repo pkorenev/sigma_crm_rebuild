@@ -51,4 +51,29 @@ class Sigma::ApartmentHouse < ActiveRecord::Base
   def name
 
   end
+
+  def apartment_1_rooms_count
+    apartment_n_rooms_count(1)
+  end
+
+  def apartment_2_rooms_count
+    apartment_n_rooms_count(2)
+  end
+
+  def apartment_3_rooms_count
+    apartment_n_rooms_count(3)
+  end
+
+  def apartment_4_rooms_count
+    apartment_n_rooms_count(4)
+  end
+
+  def apartment_5_plus_rooms_count
+    apartments.where("rooms_count > 4").count
+  end
+
+  def apartment_n_rooms_count(rooms_count)
+    #joins(:sigma_apartments)
+    apartments.where(rooms_count: rooms_count).count
+  end
 end

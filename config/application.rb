@@ -26,6 +26,8 @@ module Sigma
 
     config.active_record.whitelist_attributes = true
 
+
+
     # if Rails.env.development?
     #   # reload_gems = %w(addressable) # names of gems which should autoreload
     #   # config.autoload_paths += Gem.loaded_specs.values.inject([]){ |a,gem| a += gem.load_paths if reload_gems.include? gem.name; a }

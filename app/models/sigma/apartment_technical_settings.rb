@@ -29,10 +29,11 @@
 #
 
 class Sigma::ApartmentTechnicalSettings < ActiveRecord::Base
-  attr_accessible *attribute_names
+
   extend CommonAttributeName
 
   self.table_name = :sigma_apartment_technical_settings
+  attr_accessible *attribute_names
 
   belongs_to :building, polymorphic: true
 

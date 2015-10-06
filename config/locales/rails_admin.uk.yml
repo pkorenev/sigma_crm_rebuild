@@ -59,6 +59,10 @@ uk:
       item: "Item"
       message: "Message"
     actions:
+      invite:
+        title: "Запросити"
+        menu: "Запросити"
+        breadcrumb: "Запросити"
       file_manager:
         title: "Менеджер файлів"
         menu: "Менежер файлів"

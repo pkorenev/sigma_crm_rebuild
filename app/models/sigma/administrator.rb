@@ -25,6 +25,6 @@
 #  invitations_count      :integer          default(0)
 #
 
-class Sigma::Administrator < Sigma::User
+class Sigma::Administrator < Sigma::Manager
 
 end

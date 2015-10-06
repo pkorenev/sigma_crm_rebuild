@@ -95,7 +95,7 @@ gem 'simple_form'
 
 gem "enumerize"
 
-gem 'rails_admin'#, path: "gems/rails_admin"
+#gem 'rails_admin'#, path: "gems/rails_admin"
 #gem 'rails_admin_explorer', path: "gems/rails_admin_explorer"
 
 
@@ -117,9 +117,19 @@ gem 'arbre'
 gem 'rails-i18n'
 
 
-local_gem 'addressable'
-local_gem "attachable"
+local_gem 'addressable', auto_reload: true
+local_gem "attachable", auto_reload: true
 local_gem "auto_reload"
 local_gem "rails-i18n-extensions"
 
+#local_gem "rails_admin_advanced_ui", auto_reload: true
+
 gem 'ckeditor'
+
+gem 'bower-rails'
+
+# rails_admin
+#local_gem "rails_admin", auto_reload: true
+#gem 'rails_admin'
+local_gem "rails_admin_sigma", auto_reload: true
+#gem 'rails_admin_invite', :github => 'tonywok/rails_admin_invite'

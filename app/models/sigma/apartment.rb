@@ -34,8 +34,12 @@ class Sigma::Apartment < ActiveRecord::Base
   attr_accessible :apartment_house
 
   has_images :banner_images, styles: { thumbnail: "273x180#", large: "940x400#" }
+  has_images :gallery_images, styles: { thumbnail: "273x180#", gallery_image: "1440x900#", gallery_thumb: "96x60#" }
+  has_attachment :pdf_file
 
   enumerize :apartment_type, in: [:general, :studio, :mansard, :two_levels]
+
+  enumerize :status, in: [:building_in_process, :built, :project, :not_commissioned, :booked, :sold]
 
 
   # =========================================
@@ -47,6 +51,8 @@ class Sigma::Apartment < ActiveRecord::Base
   validates :apartment_house, presence: true
   validates :apartment_number, presence: true
   validates :apartment_type, presence: true
+
+
 
   def street_address
     I18n.t("formats.street_address", street: apartment_house.street, street_number: apartment_house.street_number)

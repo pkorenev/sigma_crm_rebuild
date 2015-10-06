@@ -29,3 +29,11 @@ uk:
         studio: "Студіо"
         mansard: "Мансардна"
         two_levels: "Дворівнева"
+
+      status:
+        building_in_process: "Будується"
+        built: "Побудовано"
+        project: "Проект"
+        not_commissioned: "Не введена в експлуатацію"
+        booked: "Заброньовано"
+        sold: "Продано"
