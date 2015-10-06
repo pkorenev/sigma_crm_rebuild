@@ -3,7 +3,7 @@ unless !!ENV['si']
   Rails.application.routes.draw do
     mount Attachable::Engine => "", as: "attachable"#, subdomain: "assets"
 
-  root to: "rails_admin/main#index"
+
 
   mount Ckeditor::Engine => '/ckeditor'
     devise_for :users, class_name: "Sigma::User"
@@ -42,7 +42,7 @@ unless !!ENV['si']
       resources :assets
     end
 
-
+    root to: "rails_admin/main#index"
     match "*path", to: "errors#not_found", via: [:get, :post, :update, :put, :delete]
     #root to: "crm_admin#dashboard"
 
