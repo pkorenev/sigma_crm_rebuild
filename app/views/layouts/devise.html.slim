@@ -1,0 +1,26 @@
+= stylesheet_link_tag "crm"
+body.gray-bg
+  .middle-box.text-center.loginscreen.animated.fadeInDown
+    div
+      div
+        h1.logo-name style="font-size: 96px;letter-spacing: 0;"
+          |S-CRM
+
+      = yield
+      /form.m-t action="index.html" role="form"
+        .form-group
+          input.form-control placeholder="Username" required="" type="email" /
+        .form-group
+          input.form-control placeholder="Password" required="" type="password" /
+        button.btn.btn-primary.block.full-width.m-b type="submit"  Login
+        a href="#"
+          small Forgot password?
+        p.text-muted.text-center
+          small Do not have an account?
+        a.btn.btn-sm.btn-white.btn-block href="register.html"  Create an account
+      /p.m-t
+        small Inspinia we app framework base on Bootstrap 3 &copy; 2014
+  /! Mainly scripts
+  /script src="js/jquery-2.1.1.js"
+  /script src="js/bootstrap.min.js"
+  script type="text/javascript" src="/assets/jquery/dist/jquery.min.js"

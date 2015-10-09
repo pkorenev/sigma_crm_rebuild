@@ -1,19 +1,24 @@
-@import "foundation_and_overrides"
+@import "bootstrap"
 
-table
-  min-width: 100%
-.navigation
-  display: block
-  position: absolute
-  left: 0
-  width: 250px
-  height: 100%
-  font-size: rem-calc(14)
-  ul
-    list-style: none
+$fa-font-path: "/assets/font-awesome/fonts"
+@import "font-awesome/scss/font-awesome"
 
-.page-content
-  margin-left: 250px
-  padding: 0 50px
-  a
-    font-size: rem-calc(14)
+@import "toastr/toastr.min"
+@import "jquery.gritter/css/jquery.gritter"
+
+@import "plugins/iCheck/custom"
+@import "jquery.steps/demo/css/jquery.steps"
+
+
+@import "animate.css/animate.min"
+
+$fontPath: "/assets/footable/css/fonts/"
+@import "custom_footable_core"
+
+@import "dropzone/dist/basic"
+@import "dropzone/dist/dropzone"
+
+@import "inspinia_style"
+
+@import "basic"
+@import "resources"

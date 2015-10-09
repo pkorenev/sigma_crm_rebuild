@@ -1,0 +1,34 @@
+/= rails_admin_form_for @object, url: invite_path(model_name: @abstract_model.to_param), as: @abstract_model.param_key, html: { multipart: true, class: "form-horizontal denser", data: { title: @page_name } } do |form|
+  /= form.generate
+  / #action: :invite
+
+  = render "form_user_permissions", form: form
+
+  /= simple_form_for @object, url: invite_path(model_name: @abstract_model.to_param), as: @abstract_model.param_key, html: { multipart: true, class: "form-horizontal denser", data: { title: @page_name } } do |form|
+  = form.input :email
+  = form.button :submit
+  /= content_for :contextual_tabs do
+  = bulk_menu
+  - if @filterable_fields.present?
+    li.dropdown style='float:right'
+      a.dropdown-toggle href='#' data-toggle ="dropdown"
+        = t('admin.misc.add_filter')
+        b.caret
+      ul.dropdown-menu#filters style='left:auto; right:0;'
+        - @filterable_fields.each do |field|
+          - field_options = case field.type
+          - when :enum
+            - options_for_select(field.with(object: @abstract_model.model.new).enum)
+          - else
+            - ''
+          li
+            a href='#' data-field-label=field.label data-field-name="field.name" data-field-options="field_options.html_safe" data-field-type=field.type data-field-value=""
+              = capitalize_first_letter(field.label)
+
+
+  /h1
+  = self.instance_variables.inspect
+
+
+= simple_form_for @object, url: "/" do |f|
+  = f.input :email

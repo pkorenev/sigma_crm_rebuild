@@ -1,6 +1,8 @@
 unless !!ENV["si"]
   if defined? RailsAdmin
 
+    require "rails_admin_extensions"
+
     def model_defaults
       resource_class = self.abstract_model.model_name.constantize
       label do
@@ -48,7 +50,20 @@ unless !!ENV["si"]
         dashboard                     # mandatory
         #explorer
         #file_manager
-        index                         # mandatory
+        index do
+          # mandatory
+          # controller do
+          #   proc do
+          #     render inline: @model_name #instance_variables.inspect
+          #   end
+          # end
+          # template_name do
+          #   # if @model_name == "Sigma::Manager"
+          #   #   "custom_index"
+          #   # end
+          #
+          # end
+        end
         new
         export
         bulk_delete
@@ -60,8 +75,10 @@ unless !!ENV["si"]
         ## With an audit adapter, you can add:
         # history_index
         # history_show
-        invite do
-          only [Sigma::Manager]
+        if respond_to?(:invite)
+          invite do
+            only [Sigma::Manager]
+          end
         end
       end
 
@@ -74,6 +91,8 @@ unless !!ENV["si"]
           visible false
         end
       end
+
+      config.included_models += []
 
 
       Attachable::Asset.configure_rails_admin(config)
@@ -323,7 +342,7 @@ unless !!ENV["si"]
 
       end
 
-      config.model Sigma::User do
+      config.model User do
         visible false
       end
 
@@ -332,8 +351,12 @@ unless !!ENV["si"]
       end
 
       config.model Sigma::Manager do
-        invite do
-         field :email
+
+
+        if respond_to?(:invite)
+          invite do
+           field :email
+          end
         end
 
         # create do
@@ -369,6 +392,20 @@ unless !!ENV["si"]
 
       config.model Ckeditor::AttachmentFile do
         visible false
+      end
+
+      config.model Permission do
+        visible false
+      end
+
+      config.model UserGroup do
+        field :name
+        field :users
+        field :permissions do
+          partial do
+            "form_user_permissions"
+          end
+        end
       end
     end
   end

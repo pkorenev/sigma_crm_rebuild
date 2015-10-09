@@ -32,8 +32,8 @@ class Ability
     if user.is_a?(Sigma::Manager)
       can :access, :rails_admin
       can :dashboard
-      can :index, Sigma::User
-      can :show, Sigma::User
+      can :index, User
+      can :show, User
       can :index, Sigma::Apartment
       can :show, Sigma::Apartment
       can :manage, Sigma::ApartmentHouse
@@ -41,8 +41,9 @@ class Ability
     end
 
     if user.is_a?(Sigma::Administrator)
+      can :manage, :all
       can :manage, Sigma::Apartment
-      can :manage, Sigma::User
+      can :manage, User
     end
   end
 end

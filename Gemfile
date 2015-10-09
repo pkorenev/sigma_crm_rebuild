@@ -130,6 +130,8 @@ gem 'bower-rails'
 
 # rails_admin
 #local_gem "rails_admin", auto_reload: true
-#gem 'rails_admin'
-local_gem "rails_admin_sigma", auto_reload: true
+gem 'rails_admin'
+#local_gem "rails_admin_sigma", auto_reload: true
 #gem 'rails_admin_invite', :github => 'tonywok/rails_admin_invite'
+
+gem 'bootstrap-sass', '~> 3.3.0'

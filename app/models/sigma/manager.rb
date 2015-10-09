@@ -1,3 +1,3 @@
-class Sigma::Manager < Sigma::User
+class Sigma::Manager < User
 
 end

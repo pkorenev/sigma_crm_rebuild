@@ -1,0 +1,41 @@
+= simple_form_for @resource, url: "/admin/sigma~manager/invite" do |f|
+  = f.association :user_groups, as: :check_boxes
+  = f.input :email
+  h1
+    |Root actions
+  = f.collection_check_boxes :user_permissions, @resource_permissions[:root_actions], :first, :last
+
+  h1
+    |Collection actions
+  ul
+    - @resource_permissions[:collection_actions].each do |model_name, actions|
+      li
+        = model_name.to_s.humanize
+        ul
+          - actions.each do |action_name, permit|
+            li
+              input name="" value="" type="checkbox"
+              label
+                = action_name
+
+              /= f.input_field :test_in, as: :boolean
+              /= f.label :test_in
+
+  h1
+    |Member actions
+  ul
+    - @resource_permissions[:member_actions].each do |model_name, actions|
+      li
+        = model_name.to_s.humanize
+        ul
+          - actions.each do |action_name, permit|
+            li
+              input name="" value="" type="checkbox"
+              label
+                = action_name
+
+                  /= f.input_field :test_in, as: :boolean
+                  /= f.label :test_in
+
+  button type="submit"
+    = "Invite"

@@ -1,0 +1,98 @@
+//.wizard-form
+  .steps
+    [role=tablist]
+      li
+        width: 20%
+
+.attachments-dropzone
+  min-height: 100%
+
+
+.filemanager-toolbar
+  .tool
+    display: inline-block
+    padding: 5px 10px
+    border: 1px solid lightgray
+    cursor: pointer
+    &:hover
+      background: rgba(#fff, 0.8)
+.attachments-dropzone
+  background: none
+  border: 1px solid lightgray
+  .dz-preview.dz-image-preview
+    background: none
+  .dz-preview
+    &.ui-selected, &.xselectable-selected
+      background: lightblue
+
+  .xselectable-glass
+    background-color: transparent
+    z-index: 1000
+    cursor: hand
+    cursor: pointer
+
+  .xselectable-box
+    border: 1px dotted black
+    background-color: rgba(255, 255, 255, 0.5)
+    cursor: hand
+    cursor: pointer
+
+.wizard-form
+  fieldset
+    overflow-y: auto
+
+  .wizard > .content > .body
+    width: 100%
+
+
+.avatar
+  .no-image
+    text-align: center
+    height: 300px
+    background: rgba(#D3D3D3, 0.4)
+    padding: 100px 0 0 0
+
+    .text
+      font-size: 2rem
+      font-weight: 600
+      margin-top: 1rem
+
+
+
+table
+
+  &.show-item-main-info
+    tbody
+      td
+        padding: 5px 10px
+        &:first-child
+          font-weight: 600
+  &.show-details
+    width: 100%
+    border-collapse: collapse
+    &, th, td
+      border: 1px solid rgba(#d4d4d4, 0.8)
+
+    thead
+      th
+        background: rgba(211, 211, 211, 0.4)
+        padding: 5px 10px
+        font-weight: 600
+        &:first-child
+          width: 25%
+    td
+      padding: 5px 10px
+      &:first-child
+        font-weight: 400
+
+.comment
+  .title-and-text-container
+    min-height: 62px
+
+
+form
+  .group
+    margin: 0 0 15px 0
+    .group-content
+      border-left: 2px solid lightgrey
+      padding-left: 20px

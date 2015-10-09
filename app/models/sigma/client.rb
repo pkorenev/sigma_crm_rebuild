@@ -25,6 +25,6 @@
 #  invitations_count      :integer          default(0)
 #
 
-class Sigma::Client < Sigma::User
+class Sigma::Client < User
 
 end

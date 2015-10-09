@@ -1,0 +1,49 @@
+# test
+asset "rainbow"
+
+
+
+
+asset "bootstrap"
+
+asset "font-awesome"
+asset "animate.css"
+asset "jquery"
+asset "jquery-ui"
+asset "metisMenu"
+asset "slimScroll"
+asset "pace"
+asset "oclazyload"
+
+asset "nya-bootstrap-select"
+
+asset "ckeditor"
+
+asset "toastr"
+
+asset "jquery.gritter"
+
+asset "flot"
+asset "flot.tooltip"
+asset "flot-spline"
+
+asset "peity"
+
+asset "sparkline"
+asset "jquery.sparkline.build"
+
+asset "chart.js"
+
+asset "footable"
+
+asset "icheck"
+
+asset "jquery.steps"
+
+asset "jquery-validation"
+
+asset "dropzone"
+
+asset "jquery-form"
+
+asset "js-cookie"

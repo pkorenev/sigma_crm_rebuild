@@ -1,0 +1,12 @@
+= vendorize($property, $value)
+  -moz-#{$property}: #{$value}
+  -o-#{$property}: #{$value}
+  -ms-#{$property}: #{$value}
+  -webkit-#{$property}: #{$value}
+  #{$property}: #{$value}
+
+= transform($value)
+  +vendorize(transform, $value)
+
+= transition($value)
+  +vendorize(transition, $value)

@@ -1,0 +1,17 @@
+h3 Вітаємо у Sigma CRM
+p
+  | S-CRM &mdash; це надійне та зручне середовище для управління агенціями нерухомості.
+/! Continually expanded and constantly improved Inspinia Admin Them (IN+)
+p Просимо залогуватися
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  - # f.error_notification
+  - resource.valid?() if params[:action] == 'create'; resource.errors.messages;
+  = f.error_notification
+  .form-inputs
+    = f.input :email, required: true, label: false, placeholder: "Email or phone", as: :string, autofocus: true
+    = f.input :password, required: false, label: false
+    = f.input :remember_me, label: "Запам’ятати мене", as: :boolean if devise_mapping.rememberable?
+  .form-actions
+    /= f.button :submit, "Log in", class: "btn btn-primary block full-width m-b"
+    input type="submit" value="Увійти" name="commit" class="btn btn-primary block full-width m-b"
+= render "devise/shared/links"
