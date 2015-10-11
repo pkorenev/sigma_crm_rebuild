@@ -33,4 +33,6 @@ class Sigma::Client < User
   #has_one :client_info
 
   #attr_accessible :client_info
+
+
 end
