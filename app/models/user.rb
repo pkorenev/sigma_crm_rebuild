@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, styles: { thumb: "64x64#", large: "170x340#" }
+  attr_accessible :avatar
   do_not_validate_attachment_file_type :avatar
 
   #has_many :permission_bindings, as: :permissionable
