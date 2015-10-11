@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar
+  has_attached_file :avatar, styles: { thumb: "150x150#" }
   do_not_validate_attachment_file_type :avatar
 
   #has_many :permission_bindings, as: :permissionable

@@ -36,12 +36,13 @@ module RailsAdmin
             elsif request.post? # CREATE
               #render inline: params.inspect
               #render inline: params.inspect
+              
               @modified_assoc = []
               @object = @abstract_model.new
-              sanitize_params_for!(:invite)
+              #sanitize_params_for!(:invite)
               email = params[:sigma_manager][:email]
               Sigma::Manager.invite!(email: email)
-              @object.set_attributes(params[@abstract_model.param_key])
+              #@object.set_attributes(params[@abstract_model.param_key])
               @authorization_adapter && @authorization_adapter.attributes_for(:invite, @abstract_model).each do |name, value|
                 @object.send("#{name}=", value)
               end

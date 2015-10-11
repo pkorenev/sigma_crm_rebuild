@@ -1,13 +1,15 @@
-= simple_form_for @resource, url: "/admin/sigma~manager/invite" do |f|
-  = f.association :user_groups, as: :check_boxes
-  = f.input :email
-  h1
+= simple_form_for @resource, url: "/sigma~manager/invite" do |f|
+  /.col-lg-12
+    = f.association :user_groups, as: :check_boxes
+  .col-lg-6
+    = f.input :email
+  /h1
     |Root actions
-  = f.collection_check_boxes :user_permissions, @resource_permissions[:root_actions], :first, :last
+  /= f.collection_check_boxes :user_permissions, @resource_permissions[:root_actions], :first, :last
 
-  h1
+  /h1
     |Collection actions
-  ul
+  /ul
     - @resource_permissions[:collection_actions].each do |model_name, actions|
       li
         = model_name.to_s.humanize
@@ -21,9 +23,9 @@
               /= f.input_field :test_in, as: :boolean
               /= f.label :test_in
 
-  h1
+  /h1
     |Member actions
-  ul
+  /ul
     - @resource_permissions[:member_actions].each do |model_name, actions|
       li
         = model_name.to_s.humanize
@@ -37,5 +39,6 @@
                   /= f.input_field :test_in, as: :boolean
                   /= f.label :test_in
 
-  button type="submit"
-    = "Invite"
+  .col-lg-12
+    button class="btn btn-primary" type="submit"
+      = "Invite"

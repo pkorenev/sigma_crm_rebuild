@@ -30,5 +30,15 @@
   = self.instance_variables.inspect
 
 
-= simple_form_for @object, url: "/" do |f|
+/= simple_form_for @object, url: "/" do |f|
   = f.input :email
+
+- if request.post?
+  div class="alert alert-success"
+    a class="close" data-dismiss="alert" href="#"
+    |Ви успішно запросили менеджера
+
+= simple_form_for @object, url: invite_path(model_name: @abstract_model.to_param), as: @abstract_model.param_key do |f|
+  = f.input :email
+  button class="btn btn-primary" type="submit"
+    = "Invite"

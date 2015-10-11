@@ -28,6 +28,12 @@ unless !!ENV["si"]
       group I18n.t("admin.field_group_labels.#{label}"), &block
     end
 
+    def i18n_navigation_label(label)
+      navigation_label do
+        I18n.t("admin.navigation_labels.#{label}")
+      end
+    end
+
     RailsAdmin.config do |config|
 
       ### Popular gems integration
@@ -77,7 +83,7 @@ unless !!ENV["si"]
         # history_show
         if respond_to?(:invite)
           invite do
-            only [Sigma::Manager]
+            only [Sigma::Manager, Sigma::Client]
           end
         end
       end
@@ -92,7 +98,7 @@ unless !!ENV["si"]
         end
       end
 
-      config.included_models += []
+      config.included_models += [Sigma::ClientInfo]
 
 
       Attachable::Asset.configure_rails_admin(config)
@@ -347,11 +353,17 @@ unless !!ENV["si"]
       end
 
       config.model Sigma::Administrator do
-        visible false
+        #visible false
+        parent false
+        navigation_label do
+          I18n.t("admin.navigation_labels.workers")
+        end
       end
 
       config.model Sigma::Manager do
-
+        navigation_label do
+          I18n.t("admin.navigation_labels.workers")
+        end
 
         if respond_to?(:invite)
           invite do
@@ -362,10 +374,88 @@ unless !!ENV["si"]
         # create do
         #   field :email
         # end
+
+        list do
+          field :email
+          field :first_name
+          field :last_name
+          field :role
+          field :phone_number
+
+
+        end
+
+        show do
+          field :avatar
+
+          field :full_name
+          field :email
+          field :role, :enum do
+
+          end
+
+          group_with_i18n_label :user_info do
+            field :company_name
+            field :company_site
+            field :phone_number
+          end
+        end
+        edit do
+          field :email
+          field :first_name
+          field :middle_name
+          field :last_name
+          field :avatar
+          field :phone_number
+          field :role, :enum do
+
+          end
+          field :password
+          field :password_confirmation
+          group_with_i18n_label :user_info do
+            field :company_name
+            field :company_site
+
+          end
+        end
       end
 
       config.model Sigma::Client do
-        visible false
+        i18n_navigation_label :clients
+
+        list do
+          field :email
+          field :first_name
+          field :last_name
+
+          field :phone_number
+        end
+
+        edit do
+          field :email
+          field :first_name
+          field :middle_name
+          field :last_name
+          field :avatar
+          field :phone_number
+          field :client_types
+          field :password
+          field :password_confirmation
+          group_with_i18n_label :user_info do
+            field :how_you_had_known
+            field :birthday
+            field :identification_number
+            field :passport_serial_number
+            field :passport_date
+            field :passport_given_by
+
+          end
+
+          #field :client_info
+
+
+        end
+
       end
 
       config.model Sigma::Agreement do
@@ -374,7 +464,6 @@ unless !!ENV["si"]
         list do
           #filters [:manager]
           scopes [:laid, :unlaid]
-
         end
       end
 
@@ -399,6 +488,7 @@ unless !!ENV["si"]
       end
 
       config.model UserGroup do
+        visible false
         field :name
         field :users
         field :permissions do
@@ -407,6 +497,29 @@ unless !!ENV["si"]
           end
         end
       end
+
+      config.model Sigma::Builder do
+        apartment_navigation_label
+      end
+
+      config.model UserMembership do
+        visible false
+      end
+
+      config.model Sigma::ClientInfo do
+        visible false
+      end
+
+
+      config.model ClientType do
+        edit do
+          field :name
+          field :description do
+            help "Обов’язкове. Опишіть ознаки, за якими клієнта слід віднести до цієї групи"
+          end
+        end
+      end
+
     end
   end
 end

@@ -1,6 +1,19 @@
 uk:
   activerecord:
     models:
+
+      client_type:
+        one: "Тип клієнтів"
+        other: "Типи клієнтів"
+      sigma/client:
+        one: "Клієнт"
+        other: "Клієнти"
+      sigma/administrator:
+        one: "Адміністратор"
+        other: "Адміністратори"
+      sigma/manager:
+        one: "Менеджер"
+        other: "Менеджери"
       infrastructure: "Інфраструктура"
       house_main_info: "Основна інформація про будинок"
       house_technical_info: "Технічна інформація про будинок"
@@ -26,6 +39,16 @@ uk:
         new: "Новий атачмент"
 
     attributes:
+
+      # common clients
+      description: "Опис"
+      how_you_had_known: "Як дізналтся про "
+      birthday: "Дата народження"
+      identification_number: "Ідентифікаційний номер"
+      passport_serial_number: "Серія паспорту"
+      passport_date: "Дата видачі паспорту"
+      passport_given_by: "Ким виданий паспорт"
+      client_types: "Типи клієнтів"
 
       # common
       published: "Опуліковано"
@@ -172,6 +195,11 @@ uk:
         building_complex: "Комплекс"
 
       # apartment
+
+      # global users
+      company_name: "Назва компанії"
+      company_site: "Сайт компанії"
+      phone_number: "Номер телефону"
       
 
 
@@ -186,8 +214,11 @@ uk:
   admin:
     navigation_labels:
       apartment: "Нерухомість"
+      workers: "Працівники"
+      clients: "Клієнти"
     field_group_labels:
       main_info: "Основна інформація"
       technical_details: "Технічні характеристики"
       infrastructure: "Інфраструктура"
       defaults: "Дефолти"
+      user_info: "Інформація про користувача"
