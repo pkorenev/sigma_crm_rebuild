@@ -376,6 +376,7 @@ unless !!ENV["si"]
         # end
 
         list do
+          field :avatar
           field :email
           field :first_name
           field :last_name
@@ -386,7 +387,9 @@ unless !!ENV["si"]
         end
 
         show do
-          field :avatar
+          field :avatar do
+            thumb_method :large
+          end
 
           field :full_name
           field :email
@@ -423,7 +426,24 @@ unless !!ENV["si"]
       config.model Sigma::Client do
         i18n_navigation_label :clients
 
+        show do
+          field :avatar do
+            thumb_method :large
+          end
+
+          field :full_name
+          field :email
+          field :client_types
+
+          group_with_i18n_label :user_info do
+            field :company_name
+            field :company_site
+            field :phone_number
+          end
+        end
+
         list do
+          field :avatar
           field :email
           field :first_name
           field :last_name
@@ -506,12 +526,10 @@ unless !!ENV["si"]
         visible false
       end
 
-      config.model Sigma::ClientInfo do
-        visible false
-      end
 
 
       config.model ClientType do
+        i18n_navigation_label :clients
         edit do
           field :name
           field :description do

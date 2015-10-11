@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar, styles: { thumb: "150x150#" }
+  has_attached_file :avatar, styles: { thumb: "64x64#", large: "170x340#" }
   do_not_validate_attachment_file_type :avatar
 
   #has_many :permission_bindings, as: :permissionable
@@ -82,5 +82,13 @@ class User < ActiveRecord::Base
 
 
 
+  end
+
+  def first_and_middle_name
+    "#{first_name} #{last_name}"
+  end
+
+  def full_name
+    "#{first_name} #{middle_name} #{last_name}"
   end
 end

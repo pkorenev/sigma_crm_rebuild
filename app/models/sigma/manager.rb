@@ -19,11 +19,5 @@ class Sigma::Manager < User
   #   @user_role = "Sigma::#{role_name}"
   # end
 
-  def first_and_middle_name
-    "#{first_name} #{last_name}"
-  end
 
-  def full_name
-    "#{first_name} #{middle_name} #{last_name}"
-  end
 end
