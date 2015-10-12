@@ -503,6 +503,14 @@ unless !!ENV["si"]
               bindings[:view]._current_user.id
             end
           end
+
+          field :manager do
+            visible do
+              bindings[:view]._current_user.administrator? || bindings[:view]._current_user.super_administrator?
+            end
+          end
+
+          field
           #field :client_info
 
 
