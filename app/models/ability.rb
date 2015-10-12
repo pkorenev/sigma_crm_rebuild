@@ -39,6 +39,8 @@ class Ability
       can :show, Sigma::Apartment
       can :manage, Sigma::ApartmentHouse
       can :manage, Sigma::BuildingComplex
+      can :create, Sigma::Client
+      can :manage, user.clients
     end
 
     if user.administrator? || user.super_administrator?

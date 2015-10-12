@@ -27,6 +27,8 @@
 
 class Sigma::Client < User
 
+  has_and_belongs_to_many :managers, class_name: "Sigma::Manager", join_table: "clients_managers_bindings"
+
 
   has_and_belongs_to_many :client_types, class_name: "ClientType", join_table: :client_type_bindings
 

@@ -413,6 +413,24 @@ unless !!ENV["si"]
           field :phone_number
           field :role, :enum do
 
+            label do
+              profile = @object.class == bindings[:view]._current_user.class &&  @object.id == bindings[:view]._current_user.id
+              if true
+                'Роль'
+              else
+                false
+              end
+            end
+            help false
+            render do
+              profile = @object.class == bindings[:view]._current_user.class &&  @object.id == bindings[:view]._current_user.id
+
+              if false
+                bindings[:view].render :partial => "rails_admin/main/#{partial}", :locals => {:field => self, :form => bindings[:form] }
+              else
+                bindings[:view]._current_user.role
+              end
+            end
           end
           field :password
           field :password_confirmation
