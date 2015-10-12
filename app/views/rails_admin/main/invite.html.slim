@@ -33,10 +33,18 @@
 /= simple_form_for @object, url: "/" do |f|
   = f.input :email
 
-- if request.post?
+- if request.post? && @success
   div class="alert alert-success"
     a class="close" data-dismiss="alert" href="#"
     |Ви успішно запросили менеджера
+- else
+  - if @existing_user
+    div class="alert alert-success"
+      a class="close" data-dismiss="alert" href="#"
+      |Користувач з таким email'ом вже існіує. &thinsp;
+      a href="/user/#{@existing_user[1]}"
+        = @email
+
 
 = simple_form_for @object, url: invite_path(model_name: @abstract_model.to_param), as: @abstract_model.param_key do |f|
   = f.input :email

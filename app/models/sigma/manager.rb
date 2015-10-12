@@ -2,6 +2,12 @@ class Sigma::Manager < User
   extend Enumerize
   enumerize :role, in: [:manager, :administrator, :super_administrator]
 
+  scope :managers, -> { where(role: "manager") }
+  scope :administrators, -> { where(role: "administrator") }
+  scope :super_administrators, -> { where(role: "super_administrator") }
+
+
+
 
   #validates :email, :first_name, :middle_name, :last_name, :avatar, :role, :phone_number, presence: true
 

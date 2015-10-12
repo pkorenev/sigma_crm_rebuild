@@ -48,6 +48,8 @@ class User < ActiveRecord::Base
 
 
 
+
+
   def user_permissions
     #RailsAdmin::Config::Actions.all.
     available_permissions = []
