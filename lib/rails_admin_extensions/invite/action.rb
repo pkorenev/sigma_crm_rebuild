@@ -40,8 +40,13 @@ module RailsAdmin
               @modified_assoc = []
               @object = @abstract_model.new
               #sanitize_params_for!(:invite)
-              email = params[@abstract_model.param_key][:email]
-              @abstract_model.model.invite!(email: email)
+              model = @abstract_model.model
+              @email = params[@abstract_model.param_key][:email]
+              @existing_user = User.where(email: @email).pluck(:email, :id).first
+              unless @existing_user
+                @abstract_model.model.invite!(email: @email)
+                @success = true
+              end
               #@object.set_attributes(params[@abstract_model.param_key])
               @authorization_adapter && @authorization_adapter.attributes_for(:invite, @abstract_model).each do |name, value|
                 @object.send("#{name}=", value)

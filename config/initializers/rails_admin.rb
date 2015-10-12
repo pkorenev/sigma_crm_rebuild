@@ -353,6 +353,7 @@ unless !!ENV["si"]
       end
 
       config.model Sigma::Administrator do
+        visible false
         #visible false
         parent false
         navigation_label do
@@ -536,6 +537,12 @@ unless !!ENV["si"]
             help "Обов’язкове. Опишіть ознаки, за якими клієнта слід віднести до цієї групи"
           end
         end
+      end
+
+      config.model Sigma::SuperAdministrator do
+        parent false
+        i18n_navigation_label(:workers)
+        visible false
       end
 
     end

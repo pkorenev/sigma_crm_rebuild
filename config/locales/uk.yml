@@ -1,7 +1,9 @@
 uk:
   activerecord:
     models:
-
+      sigma/super_administrator:
+        one: "Супер адміністратор"
+        other: "Супер адміністратори"
       client_type:
         one: "Тип клієнтів"
         other: "Типи клієнтів"
@@ -41,6 +43,8 @@ uk:
     attributes:
 
       # common clients
+      password: "Пароль"
+      password_confirmation: "Підтвердження паролю"
       description: "Опис"
       how_you_had_known: "Як дізналтся про "
       birthday: "Дата народження"
