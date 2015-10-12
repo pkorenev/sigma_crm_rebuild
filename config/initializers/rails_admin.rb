@@ -475,7 +475,7 @@ unless !!ENV["si"]
 
         list do
           field :avatar
-          field :email
+          #field :email
           field :first_name
           field :last_name
           field :phone_number
