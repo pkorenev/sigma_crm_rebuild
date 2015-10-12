@@ -41,6 +41,10 @@ uk:
         new: "Новий атачмент"
 
     attributes:
+      # common users
+      first_name: "Ім’я"
+      middle_name: "По-батькові"
+      last_name: "Прізвище"
 
       # common clients
       password: "Пароль"

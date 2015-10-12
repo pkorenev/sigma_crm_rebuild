@@ -478,8 +478,9 @@ unless !!ENV["si"]
           field :email
           field :first_name
           field :last_name
-
           field :phone_number
+          field :client_types
+          field :manager
         end
 
         edit do
