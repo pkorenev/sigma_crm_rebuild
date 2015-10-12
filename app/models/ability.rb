@@ -29,7 +29,7 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
-    if user.manager?
+    if user.respond_to?(:manager?) && user.manager?
       can :access, :rails_admin
       can :dashboard
       can :index, User
@@ -40,7 +40,7 @@ class Ability
       can :manage, Sigma::BuildingComplex
     end
 
-    if user.administrator?
+    if user.respond_to?(:administrator?) && user.administrator?
       can :manage, :all
       can :manage, Sigma::Apartment
       can :manage, User
