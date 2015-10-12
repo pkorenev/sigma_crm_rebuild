@@ -496,6 +496,11 @@ unless !!ENV["si"]
 
           end
 
+          field :manager do
+            visible do
+              bindings[:view]._current_user.administrator? || bindings[:view]._current_user.super_administrator?
+            end
+          end
 
           field :manager_id, :hidden do
             visible true
@@ -504,11 +509,7 @@ unless !!ENV["si"]
             end
           end
 
-          field :manager do
-            visible do
-              bindings[:view]._current_user.administrator? || bindings[:view]._current_user.super_administrator?
-            end
-          end
+
 
 
           #field :client_info
