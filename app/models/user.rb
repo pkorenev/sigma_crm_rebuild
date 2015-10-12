@@ -94,6 +94,10 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def last_and_first_name
+    "#{last_name} #{first_name}"
+  end
+
   def full_name
     "#{first_name} #{middle_name} #{last_name}"
   end
@@ -111,7 +115,7 @@ class User < ActiveRecord::Base
   end
 
   def object_label
-    return full_name if full_name.present?
+    return last_and_first_name if last_and_first_name.present?
     return email
   end
 
