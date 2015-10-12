@@ -454,10 +454,6 @@ unless !!ENV["si"]
         end
 
         show do
-
-
-
-
           field :avatar do
             thumb_method :large
           end
@@ -466,15 +462,38 @@ unless !!ENV["si"]
           field :email
           field :client_types
 
+          field :manager
+
           group_with_i18n_label :user_info do
             field :company_name
             field :company_site
             field :phone_number
+
+            field :how_you_had_known
+            field :birthday
+            field :identification_number
+            field :passport_serial_number
+            field :passport_date
+            field :passport_given_by
           end
         end
 
         list do
-          field :avatar
+          field :avatar do
+            pretty_value do
+              if value.presence
+                v = bindings[:view]
+                url = resource_url
+                if image
+                  thumb_url = resource_url(thumb_method)
+                  image_html = v.image_tag(thumb_url, class: 'img-thumbnail')
+                  url != thumb_url ? v.link_to(image_html, url, target: '_blank') : image_html
+                else
+                  v.link_to(nil, url, target: '_blank')
+                end
+              end
+            end
+          end
           #field :email
           field :first_name
           field :last_name
