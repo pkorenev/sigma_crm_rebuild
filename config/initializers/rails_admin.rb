@@ -502,17 +502,47 @@ unless !!ENV["si"]
             end
           end
 
-          field :manager_id, :hidden do
-            visible true
-            def value
-              bindings[:view]._current_user.id
+          #field :client_info
+        end
+
+        create do
+          field :email
+
+          field :first_name
+          field :middle_name
+          field :last_name
+          field :avatar
+          field :phone_number
+          field :client_types
+          field :password
+          field :password_confirmation
+          group_with_i18n_label :user_info do
+            field :how_you_had_known
+            field :birthday
+            field :identification_number
+            field :passport_serial_number
+            field :passport_date
+            field :passport_given_by
+
+          end
+
+          field :manager do
+            visible do
+              bindings[:view]._current_user.administrator? || bindings[:view]._current_user.super_administrator?
             end
           end
 
+          field :manager_id do
+            visible do
+              bindings[:view]._current_user.manager?
+            end
 
-
-
-          #field :client_info
+            def value
+              if bindings[:view]._current_user.manager?
+                bindings[:view]._current_user.id
+              end
+            end
+          end
 
 
         end
