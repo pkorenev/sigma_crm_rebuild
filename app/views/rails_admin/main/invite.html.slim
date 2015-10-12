@@ -47,6 +47,7 @@
 
 
 = simple_form_for @object, url: invite_path(model_name: @abstract_model.to_param), as: @abstract_model.param_key do |f|
+  = f.input :role, as: :select
   = f.input :email
   button class="btn btn-primary" type="submit"
     = "Invite"
