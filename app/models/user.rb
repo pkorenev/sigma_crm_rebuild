@@ -98,5 +98,17 @@ class User < ActiveRecord::Base
     "#{first_name} #{middle_name} #{last_name}"
   end
 
+  def manager?
+    self.role.present? && self.role.to_s == "manager"
+  end
+
+  def super_administrator?
+    self.role.present? && self.role.to_s == "super_administrator"
+  end
+
+  def administrator?
+    self.role.present? && self.role.to_s == "administrator"
+  end
+
 
 end
