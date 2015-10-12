@@ -34,6 +34,7 @@ class Ability
       can :dashboard
       can :index, User
       can :show, User
+      can :manage, user
       can :index, Sigma::Apartment
       can :show, Sigma::Apartment
       can :manage, Sigma::ApartmentHouse
