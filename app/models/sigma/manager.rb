@@ -1,6 +1,6 @@
 class Sigma::Manager < User
   extend Enumerize
-  enumerize :role, in: [:manager, :administrator, :super_administrator]
+
 
   scope :managers, -> { where(role: "manager") }
   scope :administrators, -> { where(role: "administrator") }

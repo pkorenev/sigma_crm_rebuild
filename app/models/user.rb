@@ -46,6 +46,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :password
 
+  enumerize :role, in: [:manager, :administrator, :super_administrator]
+
 
 
 
@@ -94,4 +96,6 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{middle_name} #{last_name}"
   end
+
+
 end
