@@ -475,13 +475,9 @@ unless !!ENV["si"]
         end
 
         edit do
-          field :manager_id, :hidden do
-            visible true
-            def value
-              bindings[:view]._current_user.id
-            end
-          end
+
           field :email
+
           field :first_name
           field :middle_name
           field :last_name
@@ -500,6 +496,13 @@ unless !!ENV["si"]
 
           end
 
+
+          field :manager_id, :hidden do
+            visible true
+            def value
+              bindings[:view]._current_user.id
+            end
+          end
           #field :client_info
 
 
