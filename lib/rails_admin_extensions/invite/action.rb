@@ -41,10 +41,12 @@ module RailsAdmin
               @object = @abstract_model.new
               #sanitize_params_for!(:invite)
               model = @abstract_model.model
-              @email = params[@abstract_model.param_key][:email]
+              user_params = params[@abstract_model.param_key]
+              @email = user_params[:email]
+              role =  user_params[:role]
               @existing_user = User.where(email: @email).pluck(:email, :id).first
               unless @existing_user
-                @abstract_model.model.invite!(email: @email)
+                model.invite!(email: @email, role: role)
                 @success = true
               end
               #@object.set_attributes(params[@abstract_model.param_key])
