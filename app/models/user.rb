@@ -26,6 +26,7 @@
 #
 
 class User < ActiveRecord::Base
+  extend Enumerize
   self.table_name = :sigma_users
   attr_accessible *attribute_names
   # Include default devise modules. Others available are:

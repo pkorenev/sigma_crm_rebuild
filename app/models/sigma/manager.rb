@@ -1,5 +1,5 @@
 class Sigma::Manager < User
-  extend Enumerize
+
 
 
   scope :managers, -> { where(role: "manager") }
