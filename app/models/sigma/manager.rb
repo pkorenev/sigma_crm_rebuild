@@ -6,8 +6,8 @@ class Sigma::Manager < User
   scope :administrators, -> { where(role: "administrator") }
   scope :super_administrators, -> { where(role: "super_administrator") }
 
-  has_and_belongs_to_many :clients, class_name: "Sigma::Client", join_table: "clients_managers_bindings"
-
+  #has_and_belongs_to_many :clients, class_name: "Sigma::Client", join_table: "clients_managers_bindings"
+  has_many :clients, class_name: "Sigma::Client"
 
 
 

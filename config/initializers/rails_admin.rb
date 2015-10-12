@@ -446,6 +446,10 @@ unless !!ENV["si"]
         i18n_navigation_label :clients
 
         show do
+
+
+
+
           field :avatar do
             thumb_method :large
           end
@@ -471,6 +475,12 @@ unless !!ENV["si"]
         end
 
         edit do
+          field :manager_id, :hidden do
+            visible true
+            def value
+              bindings[:view]._current_user.id
+            end
+          end
           field :email
           field :first_name
           field :middle_name
