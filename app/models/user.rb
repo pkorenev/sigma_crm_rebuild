@@ -110,5 +110,10 @@ class User < ActiveRecord::Base
     self.role.present? && self.role.to_s == "administrator"
   end
 
+  def object_label
+    return full_name if full_name.present?
+    return email
+  end
+
 
 end

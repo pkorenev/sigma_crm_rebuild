@@ -362,6 +362,10 @@ unless !!ENV["si"]
       end
 
       config.model Sigma::Manager do
+        object_label_method do
+          :object_label
+        end
+
         navigation_label do
           I18n.t("admin.navigation_labels.workers")
         end
