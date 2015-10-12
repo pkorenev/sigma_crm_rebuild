@@ -449,6 +449,10 @@ unless !!ENV["si"]
       config.model Sigma::Client do
         i18n_navigation_label :clients
 
+        object_label_method do
+          :object_label
+        end
+
         show do
 
 
@@ -492,10 +496,14 @@ unless !!ENV["si"]
           field :password_confirmation
           group_with_i18n_label :user_info do
             field :how_you_had_known
-            field :birthday
+            field :birthday do
+              help "Необов’язкове. Виберіть дату з календаря. Та впишіть рік"
+            end
             field :identification_number
             field :passport_serial_number
-            field :passport_date
+            field :passport_date do
+              help "Необов’язкове. Виберіть дату з календаря. Та впишіть рік"
+            end
             field :passport_given_by
 
           end
