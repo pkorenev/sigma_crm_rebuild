@@ -293,6 +293,16 @@ unless !!ENV["si"]
         weight 1
         apartment_navigation_label
 
+        list do
+          configure :id do
+            hide
+          end
+
+          configure :published do
+            hide
+          end
+        end
+
         show do
           field :building_complex
           field :coordinates
@@ -503,6 +513,12 @@ unless !!ENV["si"]
           field :avatar
           field :phone_number
           field :role, :enum do
+
+            visible do
+              v = @bindings[:view]
+              user = v._current_user
+              user.administrator? || user.super_administrator?
+            end
 
             label do
               v = @bindings[:view]
