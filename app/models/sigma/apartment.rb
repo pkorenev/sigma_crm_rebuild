@@ -68,7 +68,9 @@ class Sigma::Apartment < ActiveRecord::Base
   def apartment_type_and_rooms_count
     number = rooms_count
     word = ""
-    if number % 10 == 0 || number % 10 > 4
+    if number.nil?
+      word = "?"
+    elsif number % 10 == 0 || number % 10 > 4
       word = "кімнат"
     elsif number % 10 == 1 && number % 100 != 11
       word = "кімната"
