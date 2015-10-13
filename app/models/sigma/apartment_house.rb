@@ -76,4 +76,10 @@ class Sigma::ApartmentHouse < ActiveRecord::Base
     #joins(:sigma_apartments)
     apartments.where(rooms_count: rooms_count).count
   end
+
+  def street_address
+    "#{street}, #{street_number}"
+  end
+
+
 end

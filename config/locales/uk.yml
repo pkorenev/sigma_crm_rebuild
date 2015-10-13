@@ -46,6 +46,7 @@ uk:
       middle_name: "По-батькові"
       last_name: "Прізвище"
       apartment_houses_and_apartments_count: "Кількість будинків / квартир"
+      country_city_district: "Місце знаходження"
 
       # common clients
       password: "Пароль"

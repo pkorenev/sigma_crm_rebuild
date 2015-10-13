@@ -47,6 +47,7 @@ class Sigma::Apartment < ActiveRecord::Base
   scope :published, -> { where(published: "t") }
   scope :available, -> { published.where("sell_status is null") }
   scope :unavailable, -> { where("published = ? or sell_status is not null", true) }
+  #scope :group_by_houses
 
 
   # =========================================
@@ -105,5 +106,11 @@ class Sigma::Apartment < ActiveRecord::Base
   def avatar
     banner_images.first.data
   end
+
+  def object_label
+    apartment_address
+  end
+
+
 
 end

@@ -104,4 +104,8 @@ class Sigma::BuildingComplex < ActiveRecord::Base
   def apartment_houses_and_apartments_count
     "#{apartment_houses.length} / #{apartments.length}"
   end
+
+  def country_city_district
+    "#{country}, #{city}, #{district}"
+  end
 end

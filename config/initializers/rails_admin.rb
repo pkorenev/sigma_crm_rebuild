@@ -144,16 +144,33 @@ unless !!ENV["si"]
         apartment_navigation_label
 
         show do
-          field :name
+          field :name do
+            pretty_value do
+              v = @bindings[:view]
+              v.content_tag(:h3, value)
+            end
+          end
           field :complex_class
-          field :country
-          field :city
-          field :district
+          field :country_city_district
           field :street
           field :street_number
           field :status
-          field :apartments
-          field :banner_images
+          field :apartment_houses do
+            pretty_value do
+              v = @bindings[:view]
+              houses = value
+              v.raw(houses.map do |house|
+                v.content_tag(:h3, house.street_address) +
+                (  "Немає жодної квартири" if house.apartments.empty? ) +
+                v.raw(house.apartments.map do |apartment|
+                  v.link_to(apartment.apartment_number, v.show_path(id: apartment.id))
+                end.join(", "))
+              end.join)
+            end
+          end
+          field :banner_images do
+            show_multiple_images
+          end
           field :apartment_1_rooms_count do
             read_only true
           end
@@ -332,6 +349,7 @@ unless !!ENV["si"]
         model_defaults
         weight 1
         apartment_navigation_label
+        object_label_method :object_label
 
         show do
           field :avatar, :paperclip
