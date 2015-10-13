@@ -18,6 +18,17 @@ unless !!ENV["si"]
       end
     end
 
+    def show_multiple_images
+      pretty_value do
+        v = bindings[:view]
+        #v.render partial: "show_multiple_images", params: "send"
+        #val.inspect
+        v.raw(value.map do |asset|
+                v.image_tag(asset.url(:thumbnail))
+              end.join)
+      end
+    end
+
     def apartment_navigation_label
       navigation_label do
         I18n.t("admin.navigation_labels.apartment")
@@ -347,8 +358,12 @@ unless !!ENV["si"]
           field :main_description_html, :ck_editor
           field :infrastructure_description_html, :ck_editor
           field :technical_settings
-          field :banner_images
-          field :gallery_images
+          field :banner_images do
+            show_multiple_images
+          end
+          field :gallery_images do
+            show_multiple_images
+          end
           field :pdf_file
           field :published
         end
