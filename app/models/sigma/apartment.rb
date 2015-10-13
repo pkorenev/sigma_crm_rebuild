@@ -37,6 +37,10 @@ class Sigma::Apartment < ActiveRecord::Base
   has_images :gallery_images, styles: { thumbnail: "273x180#", gallery_image: "1440x900#", gallery_thumb: "96x60#" }
   has_attachment :pdf_file
 
+  has_many :apartment_actions, foreign_key: :apartment_id
+
+  attr_accessible :apartment_actions
+
   enumerize :apartment_type, in: [:general, :studio, :mansard, :two_levels]
 
   #enumerize :status, in: [:building_in_process, :built, :project, :not_commissioned, :booked, :viewing, :sold], multiple: true

@@ -9,6 +9,8 @@ class Sigma::Manager < User
   #has_and_belongs_to_many :clients, class_name: "Sigma::Client", join_table: "clients_managers_bindings"
   has_many :clients, class_name: "Sigma::Client"
 
+  has_many :apartment_actions, foreign_key: :manager_id
+  attr_accessible :apartment_actions
 
 
   #validates :email, :first_name, :middle_name, :last_name, :avatar, :role, :phone_number, presence: true
