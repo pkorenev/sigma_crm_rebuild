@@ -24,7 +24,7 @@ unless !!ENV["si"]
         #v.render partial: "show_multiple_images", params: "send"
         #val.inspect
         v.raw(value.map do |asset|
-                v.image_tag(asset.url(:thumbnail))
+                v.image_tag(asset.url(:thumbnail), class: "img-thumbnail", style: "margin: 10px 5px")
               end.join)
       end
     end
