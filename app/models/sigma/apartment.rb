@@ -102,5 +102,8 @@ class Sigma::Apartment < ActiveRecord::Base
     end
   end
 
+  def avatar
+    banner_images.first.data
+  end
 
 end

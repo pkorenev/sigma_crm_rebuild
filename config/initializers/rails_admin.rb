@@ -322,7 +322,35 @@ unless !!ENV["si"]
         apartment_navigation_label
 
         show do
+          field :avatar
+          field :building_complex
+          field :apartment_address
+          field :apartment_type_and_rooms_count
+          field :price
+          field :total_square
+          field :live_square
+          field :kitchen_square
 
+
+          # other fields
+
+
+          field :best
+          field :status
+          field :building_premise_number
+          field :world_sides
+
+
+          field :turnkey
+
+          field :level
+          field :main_description_html, :ck_editor
+          field :infrastructure_description_html, :ck_editor
+          field :technical_settings
+          field :banner_images
+          field :gallery_images
+          field :pdf_file
+          field :published
         end
 
         list do
