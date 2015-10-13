@@ -100,4 +100,8 @@ class Sigma::BuildingComplex < ActiveRecord::Base
     #joins(:sigma_apartments)
     apartments.where(rooms_count: rooms_count).count
   end
+
+  def apartment_houses_and_apartments_count
+    "#{apartment_houses.length} / #{apartments.length}"
+  end
 end

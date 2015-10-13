@@ -263,9 +263,10 @@ unless !!ENV["si"]
           field :city
           field :complex_class
           field :price_from
-          field :apartment_houses_count, :integer do |*args|
+          field :apartment_houses_and_apartments_count do |*args|
 
           end
+
           field :status
         end
       end
@@ -364,7 +365,11 @@ unless !!ENV["si"]
           field :gallery_images do
             show_multiple_images
           end
-          field :pdf_file
+          field :pdf_file, :paperclip do
+            def value
+              field
+            end
+          end
           field :published
         end
 
