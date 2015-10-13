@@ -322,7 +322,7 @@ unless !!ENV["si"]
         apartment_navigation_label
 
         show do
-          field :avatar
+          field :avatar, :paperclip
           field :building_complex
           field :apartment_address
           field :apartment_type_and_rooms_count
