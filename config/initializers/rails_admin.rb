@@ -78,6 +78,10 @@ unless !!ENV["si"]
         delete
         show_in_app
 
+        book do
+          only [Sigma::Apartment]
+        end
+
         ## With an audit adapter, you can add:
         # history_index
         # history_show
@@ -318,6 +322,23 @@ unless !!ENV["si"]
         apartment_navigation_label
 
         show do
+
+        end
+
+        list do
+          field :building_complex
+          field :apartment_address
+          field :apartment_type_and_rooms_count
+          field :total_square
+          field :price
+          field :list_apartment_status do
+            pretty_value do
+              v = bindings[:view]
+              v.raw(value.map{|icon| v.content_tag(:i, nil, class: "fa fa-#{icon}")  }.join)
+            end
+          end
+
+
 
         end
 
@@ -646,6 +667,15 @@ unless !!ENV["si"]
         i18n_navigation_label(:workers)
         visible false
       end
+
+      config.model ApartmentAction do
+        apartment_navigation_label
+        weight 4
+
+        visible false
+      end
+
+
 
     end
   end

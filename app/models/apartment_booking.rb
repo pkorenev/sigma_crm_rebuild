@@ -1,0 +1,3 @@
+class ApartmentBooking < ApartmentAction
+
+end

@@ -39,7 +39,14 @@ class Sigma::Apartment < ActiveRecord::Base
 
   enumerize :apartment_type, in: [:general, :studio, :mansard, :two_levels]
 
-  enumerize :status, in: [:building_in_process, :built, :project, :not_commissioned, :booked, :sold]
+  #enumerize :status, in: [:building_in_process, :built, :project, :not_commissioned, :booked, :viewing, :sold], multiple: true
+
+  enumerize :building_status, in: [:building_in_process, :built, :project]
+  enumerize :sell_status, in: [:booked, :viewing, :sold]
+
+  scope :published, -> { where(published: "t") }
+  scope :available, -> { published.where("sell_status is null") }
+  scope :unavailable, -> { where("published = ? or sell_status is not null", true) }
 
 
   # =========================================
@@ -57,4 +64,41 @@ class Sigma::Apartment < ActiveRecord::Base
   def street_address
     I18n.t("formats.street_address", street: apartment_house.street, street_number: apartment_house.street_number)
   end
+
+  def apartment_type_and_rooms_count
+    number = rooms_count
+    word = ""
+    if number % 10 == 0 || number % 10 > 4
+      word = "кімнат"
+    elsif number % 10 == 1 && number % 100 != 11
+      word = "кімната"
+    elsif number % 10 >= 2 && number % 10 <= 4
+      word = "кімнати"
+    end
+    "#{I18n.t("enumerize.sigma/apartment.apartment_type.#{apartment_type}")}, #{rooms_count} #{word}"
+  end
+
+  def apartment_address
+    "#{street_address}/#{apartment_number}"
+  end
+
+  def available?
+    status.blank? || (!status.booked? && !status.viewing? && !status.sold?)
+  end
+
+  def apartment_status
+    res = [building_status]
+    res += ["commisioned"] if commissioned?
+    res += ["not_commissioned"] unless commissioned?
+    res += ( [sell_status])
+    res.select(&:present?)
+  end
+
+  def list_apartment_status
+    apartment_status.map do |status_tag|
+      next "minus-square" if status_tag == "not_commissioned"
+    end
+  end
+
+
 end

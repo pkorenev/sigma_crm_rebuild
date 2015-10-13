@@ -1,0 +1,3 @@
+class ApartmentPurchase < ApartmentAction
+
+end

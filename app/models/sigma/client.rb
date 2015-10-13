@@ -37,7 +37,12 @@ class Sigma::Client < User
 
   #attr_accessible :client_info
 
+  before_save :set_crm_allowed_at
 
+  has_many :apartment_actions
 
+  def set_crm_allowed_at
+    self.crm_allowed_at ||= DateTime.now if self.manager_id.present?
+  end
 
 end

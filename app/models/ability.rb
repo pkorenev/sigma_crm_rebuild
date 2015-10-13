@@ -29,24 +29,37 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
+    can :access, :rails_admin
+    can :dashboard
+
+    if user.client?
+      can :manage, user
+      can :index, Sigma::Client
+    end
+
+
+
     if user.manager? || user.administrator? || user.super_administrator?
-      can :access, :rails_admin
-      can :dashboard
+
+
       can :index, User
       can :show, User
       can :manage, user
       can :index, Sigma::Apartment
       can :show, Sigma::Apartment
+      can :book, Sigma::Apartment.available
       can :manage, Sigma::ApartmentHouse
       can :manage, Sigma::BuildingComplex
       can :create, Sigma::Client
       can :manage, user.clients
+
     end
 
     if user.administrator? || user.super_administrator?
       can :manage, :all
       can :manage, Sigma::Apartment
       can :manage, User
+      #cannot :book, Sigma::Apartment.unavailable
     end
   end
 end

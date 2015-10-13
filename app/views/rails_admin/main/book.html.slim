@@ -1,0 +1,17 @@
+/= @object.inspect
+- if request.post? && @success
+  div class="alert alert-success"
+    a class="close" data-dismiss="alert" href="#"
+    |Ви успішно запросили забронювали квартиру
+- elsif request.post? && @fail
+  div class="alert alert-danger"
+    a class="close" data-dismiss="alert" href="#"
+    |Квартира недоступна
+
+- if @available
+  = simple_form_for @apartment_action, url: book_path do |f|
+    /= f.input :client, as: :select
+    = f.association :client, label_method: :object_label
+
+    button class="btn btn-primary" type="submit"
+      = t("admin.form.book")

@@ -43,6 +43,9 @@ class User < ActiveRecord::Base
 
   has_many :permissions, as: :permissionable
 
+  has_many :apartment_actions
+
+
   has_and_belongs_to_many :user_groups, class_name: "UserGroup", join_table: :user_memberships
 
   attr_accessible :password
@@ -100,6 +103,10 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{first_name} #{middle_name} #{last_name}"
+  end
+
+  def client?
+    self.is_a?(Sigma::Client)
   end
 
   def manager?

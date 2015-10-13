@@ -8,7 +8,7 @@ p Просимо залогуватися
   - resource.valid?() if params[:action] == 'create'; resource.errors.messages;
   = f.error_notification
   .form-inputs
-    = f.input :email, required: true, label: false, placeholder: "Email or phone", as: :string, autofocus: true
+    = f.input :email, required: true, label: false, placeholder: "Email", as: :string, autofocus: true
     = f.input :password, required: false, label: false
     = f.input :remember_me, label: "Запам’ятати мене", as: :boolean if devise_mapping.rememberable?
   .form-actions
