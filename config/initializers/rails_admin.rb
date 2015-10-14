@@ -315,6 +315,7 @@ unless !!ENV["si"]
           field :levels_count
           field :apartments do
             pretty_value do
+              v = @bindings[:view]
               (  "Немає жодної квартири" if value.empty? ) ||
                   v.raw(value.map do |apartment|
                           v.link_to(apartment.apartment_number, v.show_path(id: apartment.id))
