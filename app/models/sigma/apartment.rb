@@ -53,7 +53,7 @@ class Sigma::Apartment < ActiveRecord::Base
   scope :unavailable, -> { where("published = ? or sell_status is not null", true) }
   #scope :group_by_houses
 
-  scope :order_by_apartment_number, -> { order("apartment_number asc") }
+  scope :order_by_apartment_number, -> { all.to_a.sort{|a, b| a.apartment_number.to_i <=> b.apartment_number.to_i } }
 
 
   # =========================================

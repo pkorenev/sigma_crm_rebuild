@@ -163,7 +163,7 @@ unless !!ENV["si"]
                 v.content_tag(:h3, house.street_address) +
                 (  "Немає жодної квартири" if house.apartments.empty? ) +
                 v.raw(house.apartments.order_by_apartment_number.map do |apartment|
-                  v.link_to(apartment.apartment_number, v.show_path(id: apartment.id))
+                  v.link_to(apartment.apartment_number, v.show_path(id: apartment.id, model_name: RailsAdmin::AbstractModel.new(apartment.class).to_param))
                 end.join(", "))
               end.join)
             end
@@ -318,7 +318,7 @@ unless !!ENV["si"]
               v = @bindings[:view]
               (  "Немає жодної квартири" if value.empty? ) ||
                   v.raw(value.order_by_apartment_number.map do |apartment|
-                          v.link_to(apartment.apartment_number, v.show_path(id: apartment.id))
+                          v.link_to(apartment.apartment_number, v.show_path(id: apartment.id, model_name: RailsAdmin::AbstractModel.new(apartment.class).to_param))
                         end.join(", "))
             end
           end
