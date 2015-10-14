@@ -406,7 +406,7 @@ unless !!ENV["si"]
               value.first.try do|asset|
                 asset.data.try do |data|
                   if data.exists?
-                    v.link_to(data.file_name, data.url)
+                    v.link_to(asset.data_file_name, data.url)
                   else
                     v.content_tag(:p, "Немає файлу")
                   end
