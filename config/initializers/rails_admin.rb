@@ -162,7 +162,7 @@ unless !!ENV["si"]
               v.raw(houses.map do |house|
                 v.content_tag(:h3, house.street_address) +
                 (  "Немає жодної квартири" if house.apartments.empty? ) +
-                v.raw(house.apartments.map do |apartment|
+                v.raw(house.apartments.order_by_apartment_number.map do |apartment|
                   v.link_to(apartment.apartment_number, v.show_path(id: apartment.id))
                 end.join(", "))
               end.join)
@@ -317,7 +317,7 @@ unless !!ENV["si"]
             pretty_value do
               v = @bindings[:view]
               (  "Немає жодної квартири" if value.empty? ) ||
-                  v.raw(value.map do |apartment|
+                  v.raw(value.order_by_apartment_number.map do |apartment|
                           v.link_to(apartment.apartment_number, v.show_path(id: apartment.id))
                         end.join(", "))
             end
