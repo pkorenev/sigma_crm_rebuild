@@ -313,7 +313,14 @@ unless !!ENV["si"]
           field :building_end_date
           field :price_from
           field :levels_count
-          field :apartments
+          field :apartments do
+            pretty_value do
+              (  "Немає жодної квартири" if value.empty? ) ||
+                  v.raw(value.map do |apartment|
+                          v.link_to(apartment.apartment_number, v.show_path(id: apartment.id))
+                        end.join(", "))
+            end
+          end
           field :apartment_1_rooms_count
           field :apartment_2_rooms_count
           field :apartment_3_rooms_count
@@ -393,9 +400,18 @@ unless !!ENV["si"]
           field :gallery_images do
             show_multiple_images
           end
-          field :pdf_file, :paperclip do
-            def value
-              field
+          field :pdf_file do
+            pretty_value do
+              v = @bindings[:view]
+              value.first.try do|asset|
+                asset.data.try do |data|
+                  if data.exists?
+                    v.link_to(data.file_name, data.url)
+                  else
+                    v.content_tag(:p, "Немає файлу")
+                  end
+                end
+              end
             end
           end
           field :published
