@@ -11,3 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( crm.css crm.js )
+
+Rails.application.config.assets.precompile += %w( rails_admin/custom_rails_admin.css )
